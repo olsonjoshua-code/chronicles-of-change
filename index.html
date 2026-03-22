@@ -191,7 +191,7 @@ input,textarea{-webkit-user-select:text!important;-moz-user-select:text!importan
 </div>
 
 <!-- TITLE -->
-<div class="screen" id="title-screen">
+<div class="screen active" id="title-screen">
   <div style="position:relative;width:100%;height:220px;margin-bottom:1.5rem;overflow:hidden;border:1px solid var(--border2)">
     <svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
       <defs>
@@ -229,7 +229,7 @@ input,textarea{-webkit-user-select:text!important;-moz-user-select:text!importan
     <div style="background:var(--bg2);border:1px solid var(--border);padding:12px 8px;text-align:center"><div style="font-size:24px;margin-bottom:4px">✊</div><div style="font-family:var(--bebas);font-size:11px;color:var(--gold);letter-spacing:1px">Live History</div></div>
     <div style="background:var(--bg2);border:1px solid var(--border);padding:12px 8px;text-align:center"><div style="font-size:24px;margin-bottom:4px">🃏</div><div style="font-family:var(--bebas);font-size:11px;color:var(--gold);letter-spacing:1px">Earn Cards</div></div>
   </div>
-  <button class="btn full green" onclick="showCodeGate()"><span>Enter the Movement ✊</span></button>
+  <button class="btn full green" onclick="showLoginGate()"><span>Enter the Movement ✊</span></button>
   <button class="btn full" style="margin-top:6px;border-color:var(--border2);color:var(--text2)" onclick="openTeacherDashboard()"><span>📊 Teacher View</span></button>
   <div style="font-family:var(--dm);font-size:9px;color:var(--text3);margin-top:20px;letter-spacing:1px">UNIT 14 — U.S. HISTORY EOC · SS.912.A.7.5 · SS.912.A.7.6 · SS.912.A.7.7 · SS.912.A.7.8</div>
   <div style="font-family:var(--dm);font-size:9px;color:var(--text3);margin-top:6px;letter-spacing:1px">CREATED BY JOSHUA OLSON</div>
@@ -1069,10 +1069,9 @@ async function resetAllScores(){if(!confirm('Reset ALL scores for Chronicles of 
 
 // ── PATCHED BOOT — Iron Curtain pattern ───────────────────────────────────
 window.addEventListener('DOMContentLoaded',function(){
-  // Shell/returning players go to welcome gate; brand new players see title screen
   var sp=getShellProfile();
   var saved=loadGame();
-  if((sp&&sp.setupDone&&!sp.isTeacher)||(saved&&saved.name)){
+  if((saved&&saved.name)||(sp&&!sp.isTeacher)){
     showLoginGate();
   } else {
     var ts=document.getElementById('title-screen');
