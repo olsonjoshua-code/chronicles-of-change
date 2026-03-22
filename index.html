@@ -238,6 +238,9 @@ input,textarea{-webkit-user-select:text!important;-moz-user-select:text!importan
 <!-- HUB -->
 <div class="screen" id="hub-screen">
   <div id="hub-banner-container"></div>
+  <div id="shell-return-btn" style="display:none;margin-bottom:12px">
+    <button class="btn full" onclick="returnToShell()" style="border-color:var(--teal2);color:var(--teal2)"><span>← Return to American Chronicles Hub</span></button>
+  </div>
   <div class="section-head">Unit 14 — The Civil Rights Movement</div>
   <div class="eq-banner"><strong>Essential Question:</strong> How did Americans use protest, law, and coalition building to dismantle legal segregation?</div>
   <div id="hub-chapters"></div>
@@ -387,9 +390,7 @@ input,textarea{-webkit-user-select:text!important;-moz-user-select:text!importan
         <div onclick="selectTeacher('olson')" style="padding:14px;cursor:pointer;border:1.5px solid var(--border2);background:var(--bg3);transition:border-color 0.15s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border2)'">
           <div style="font-family:var(--bebas);font-size:20px;color:var(--gold)">Mr. Olson</div>
         </div>
-        <div onclick="selectTeacher('smith')" style="padding:14px;cursor:pointer;border:1.5px solid var(--border2);background:var(--bg3);transition:border-color 0.15s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border2)'">
-          <div style="font-family:var(--bebas);font-size:20px;color:var(--gold)">Mrs. Smith</div>
-        </div>
+
         <div onclick="selectTeacher('guest')" style="padding:14px;cursor:pointer;border:1.5px solid var(--border2);background:var(--bg3);transition:border-color 0.15s" onmouseover="this.style.borderColor='var(--gold2)'" onmouseout="this.style.borderColor='var(--border2)'">
           <div style="font-family:var(--bebas);font-size:16px;color:var(--text2)">Guest / Other</div>
         </div>
@@ -424,16 +425,14 @@ input,textarea{-webkit-user-select:text!important;-moz-user-select:text!importan
 </div>
 <script>
 'use strict';
-const SAVE_KEY='chronicles_v3_save';
-const OLD_SUPA_URL='https://iluvuartxsenbgylogit.supabase.co';
-const OLD_SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsdXZ1YXJ0eHNlbmJneWxvZ2l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjA2OTIsImV4cCI6MjA4OTQzNjY5Mn0.stAmdi5xy7ofDAB4AiRg78Eoky-7FXZEa-Ui1dgwHd0';
-const OLD_HEADERS={'Content-Type':'application/json','apikey':OLD_SUPA_KEY,'Authorization':'Bearer '+OLD_SUPA_KEY};
+const SAVE_KEY='chronicles_cr_v2_save';
+const SHELL_KEY='ac_shell_state';
+const SHELL_UNIT_ID='unit6';
 const AC_SUPA_URL='https://dnmrwglrcvlbamzhlzlx.supabase.co';
 const AC_SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRubXJ3Z2xyY3ZsYmFtemhsemx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjA2OTEsImV4cCI6MjA4OTQzNjY5MX0.jEIM-dGgB0cUS0A6w31LJ5AK9QDCS_UqdVnPrb8dlXM';
 const AC_HEADERS={'Content-Type':'application/json','apikey':AC_SUPA_KEY,'Authorization':'Bearer '+AC_SUPA_KEY};
 const TEACHERS={
   'olson':{name:'Mr. Olson',periods:['1','2','3','4','5','6','7'],teacherCode:'OLSON219'},
-  'smith':{name:'Mrs. Smith',periods:['1','2','3','4','5','6','7'],teacherCode:'SMITH225'},
 };
 
 let G=null,currentChapterIdx=0,currentBeatIdx=0,chapterScore=0,chapterCorrect=0,chapterTotal=0,answeredCurrent=false,chapterLog=[];
@@ -1184,38 +1183,52 @@ function setActiveNav(idx){
 }
 
 // ── LOGIN ─────────────────────────────────────────────────────────────────
+function getShellProfile(){try{var raw=localStorage.getItem(SHELL_KEY);if(!raw)return null;var p=JSON.parse(raw);if(p&&p.name&&p.name!=='Guest'&&p.setupDone)return p;}catch(e){}return null;}
+function notifyShellComplete(){try{var raw=localStorage.getItem(SHELL_KEY);if(!raw)return;var s=JSON.parse(raw);if(!s.unitsCompleted)s.unitsCompleted=[];if(!s.unitsCompleted.includes(SHELL_UNIT_ID))s.unitsCompleted.push(SHELL_UNIT_ID);localStorage.setItem(SHELL_KEY,JSON.stringify(s));}catch(e){}}
+function returnToShell(){window.location.href='https://olsonjoshua-code.github.io/American-Chronicles-Shell/';}
+
 function showLoginGate(){
-  if(loadGame()&&G&&G.name){
+  var sp=getShellProfile();var saved=loadGame();
+  // Shell-linked auto-login
+  if(saved&&saved.name){
     var wg=document.getElementById('welcome-gate');
     if(wg){
-      document.getElementById('wg-name').textContent=G.name;
-      document.getElementById('wg-detail').textContent=getRank(G.score)+' · '+(G.score||0).toLocaleString()+' pts';
-      document.getElementById('wg-progress').textContent=G.chaptersCompleted.length+'/'+CHAPTERS.length+' chapters completed';
+      document.getElementById('wg-name').textContent=saved.name;
+      document.getElementById('wg-detail').textContent=saved.period&&saved.period!=='0'?'Mr. Olson · Period '+saved.period:'Guest';
+      document.getElementById('wg-progress').textContent=saved.chaptersCompleted&&saved.chaptersCompleted.length>0?saved.chaptersCompleted.length+' of '+CHAPTERS.length+' chapters done · '+(saved.score||0).toLocaleString()+' pts':'Starting fresh';
       var wgAv=document.getElementById('wg-avatar');
-      if(wgAv)wgAv.innerHTML=renderAvatar(64);
+      if(wgAv)wgAv.innerHTML=getPortraitSVG(saved.avatarId||'activist_m',60);
+      wg._savedGame=saved;wg._shellProfile=sp;
       wg.style.display='flex';
     }
     return;
   }
-  showScreen('title-screen');
+  if(sp&&!sp.isTeacher){
+    // Auto-create from shell profile
+    G=newGame(sp.name,'olson',sp.period||'0',sp.avatar||'activist_m');
+    G.shellLinked=true;saveGame();normalizeG();
+    afterLogin();return;
+  }
+  // Fresh login
+  showCodeGate();
 }
 function welcomeContinue(){
-  document.getElementById('welcome-gate').style.display='none';
-  if(!G)loadGame();
+  var wg=document.getElementById('welcome-gate');
+  var saved=wg&&wg._savedGame;var sp=wg&&wg._shellProfile;
+  if(wg)wg.style.display='none';
+  if(saved){G=saved;if(sp&&sp.avatar)G.avatarId=sp.avatar||G.avatarId;saveGame();}
   normalizeG();
-  document.getElementById('bottom-nav').style.display='flex';
-  renderHub();showScreen('hub-screen');
+  afterLogin();
 }
 function welcomeNewPlayer(){
-  document.getElementById('welcome-gate').style.display='none';
-  clearSave();G=null;
-  showCodeGate();
+  var wg=document.getElementById('welcome-gate');
+  if(wg)wg.style.display='none';
+  clearSave();G=null;showCodeGate();
 }
 function showWelcomeGate(){showCodeGate();}
 function showCodeGate(){
   var cg=document.getElementById('code-gate-overlay');
-  cg.style.display='flex';
-  goToStep(1);
+  cg.style.display='flex';goToStep(1);
 }
 function goToStep(n){
   [1,2,3].forEach(function(i){
@@ -1244,10 +1257,7 @@ function selectTeacher(key){
   if(key==='guest'){_loginPeriod='0';goToStep(3);}
   else{goToStep(2);}
 }
-function selectPeriod(p){
-  _loginPeriod=p;
-  goToStep(3);
-}
+function selectPeriod(p){_loginPeriod=p;goToStep(3);}
 function submitClassCode(){
   var inp=document.getElementById('class-code-input');
   var name=inp?inp.value.trim():'';
@@ -1256,10 +1266,16 @@ function submitClassCode(){
   var avatarOptions=['activist_m','activist_f','college_m','organizer_f','minister','lawyer','rosa','john_lewis','diane_nash','fannie_lou'];
   var av=avatarOptions[Math.floor(Math.random()*avatarOptions.length)];
   G=newGame(name,_loginTeacher||'guest',_loginPeriod||'0',av);
-  saveGame();
+  saveGame();afterLogin();
+}
+function afterLogin(){
+  normalizeG();
+  document.getElementById('game-header').style.display='block';
   document.getElementById('bottom-nav').style.display='flex';
+  var sp=getShellProfile();
+  var rb=document.getElementById('shell-return-btn');
+  if(rb&&(sp||(G&&G.shellLinked)))rb.style.display='block';
   renderHub();showScreen('hub-screen');
-  notify('Welcome, '+G.name+'! ✊','gold');
 }
 function openTeacherDashboard(){
   var pw=prompt('Enter teacher code:');if(!pw)return;
@@ -1459,6 +1475,7 @@ function finishChapter(){
   checkBadges();
   saveGame();
   syncScore();
+  pushACResult();
   showChapterComplete();
 }
 function showChapterComplete(){
@@ -1603,6 +1620,9 @@ function showUnitComplete(){
   var fb=BADGES.find(function(b){return b.id==='unit_complete';});
   if(fb&&!G.badgesEarned.includes(fb.id))G.badgesEarned.push(fb.id);
   saveGame();
+  syncScore();
+  pushACResult();
+  notifyShellComplete();
   var certBtn=document.getElementById('completion-cert-btn');
   var nudge=document.getElementById('completion-eoc-nudge');
   if(G.eocCompleted){if(nudge)nudge.style.display='none';if(certBtn)certBtn.style.display='block';}
@@ -1654,7 +1674,7 @@ function closeLeaderboard(){document.getElementById('leaderboard-overlay').class
 async function loadLeaderboard(){
   if(!G)return;document.getElementById('lb-sync-status').textContent='Loading…';
   try{
-    var r=await fetch(OLD_SUPA_URL+'/rest/v1/scores?game=eq.chronicles&order=score.desc&limit=200',{headers:OLD_HEADERS});
+    var r=await fetch(AC_SUPA_URL+'/rest/v1/ac_results?unit_id=eq.'+SHELL_UNIT_ID+'&order=best_score.desc&limit=200',{headers:AC_HEADERS});
     _lbAllData=await r.json()||[];renderLeaderboard();
   }catch(e){document.getElementById('lb-sync-status').textContent='Could not load scores.';_lbAllData=[];renderLeaderboard();}
 }
@@ -1669,35 +1689,56 @@ function renderLeaderboard(){
   document.getElementById('lb-sync-status').textContent=filtered.length+' students — Unit 14: Civil Rights Movement';
   if(!filtered.length){document.getElementById('lb-content').innerHTML='<div style="font-family:var(--crimson);color:var(--text3);font-style:italic;padding:16px">No results yet.</div>';return;}
   var showPeriod=_lbType==='class';var showDelete=_lbDeleteUnlocked;
-  var headerCols='<th>#</th><th>STUDENT</th>'+(showPeriod?'<th>PD</th>':'')+'<th>SCORE</th><th>ACCURACY</th>'+(showDelete?'<th></th>':'');
+  var headerCols='<th>#</th><th>STUDENT</th>'+(showPeriod?'<th>PD</th>':'')+'<th>SCORE</th><th>ACCURACY</th><th>TROPHY</th>'+(showDelete?'<th></th>':'');
+  var tierColor={historian:'var(--gold3)',gold:'var(--gold)',silver:'#c0c0c0',bronze:'#cd7f32',completed:'var(--green2)',tryagain:'var(--red2)',empty:'var(--text3)'};
+  var tierLabel={historian:'🏛️',gold:'🥇',silver:'🥈',bronze:'🥉',completed:'✅',tryagain:'🔄',empty:'—'};
   var rows=filtered.slice(0,50).map(function(s,i){
     var isMe=G&&s.name===G.name&&String(s.period)===String(G.period);
     var medal=i<3?medals[i]:'#'+(i+1);var medalColor=i===0?'var(--gold)':i===1?'#c0c0c0':i===2?'#cd7f32':'var(--text3)';
-    var delBtn=showDelete?'<td><button onclick="lbDeleteEntry(\''+s.name.replace(/'/g,"\\'")+'\',\''+s.period+'\')" style="font-family:var(--bebas);font-size:9px;background:transparent;border:1px solid var(--red2);color:var(--red2);padding:2px 6px;cursor:pointer">✕</button></td>':'';
-    return '<tr class="'+(isMe?'lb-you':'')+'"><td style="font-family:var(--dm);font-size:12px;color:'+medalColor+'">'+medal+'</td><td><div class="lb-name">'+(s.name||'—')+(isMe?' ←':'')+'</div></td>'+(showPeriod?'<td style="font-family:var(--dm);font-size:10px;color:var(--text2)">'+(s.period?'Pd '+s.period:'—')+'</td>':'')+'<td class="lb-score">'+(s.score||0).toLocaleString()+'</td><td style="font-family:var(--dm);font-size:10px;color:var(--gold)">'+(s.accuracy!=null?s.accuracy+'%':'—')+'</td>'+delBtn+'</tr>';
+    var tc=tierColor[s.trophy]||'var(--text3)';var tl=tierLabel[s.trophy]||'—';
+    var delBtn=showDelete?'<td><button onclick="lbDeleteEntry(\''+s.name.replace(/'/g,"\'")+'\',\''+s.period+'\')" style="font-family:var(--bebas);font-size:9px;background:transparent;border:1px solid var(--red2);color:var(--red2);padding:2px 6px;cursor:pointer">✕</button></td>':'';
+    return '<tr class="'+(isMe?'lb-you':'')+'"><td style="font-family:var(--dm);font-size:12px;color:'+medalColor+'">'+medal+'</td>'+
+      '<td><div class="lb-name">'+(s.name||'—')+(isMe?' ⬅':'')+'</div></td>'+
+      (showPeriod?'<td style="font-family:var(--dm);font-size:10px;color:var(--text2)">'+(s.period?'Pd '+s.period:'—')+'</td>':'')+
+      '<td class="lb-score">'+(s.best_score||0).toLocaleString()+'</td>'+
+      '<td style="font-family:var(--dm);font-size:10px;color:var(--gold)">'+(s.best_accuracy!=null?s.best_accuracy+'%':'—')+'</td>'+
+      '<td style="font-family:var(--bebas);font-size:13px;color:'+tc+'">'+tl+'</td>'+
+      delBtn+'</tr>';
   }).join('');
   document.getElementById('lb-content').innerHTML='<table class="lb-table"><thead><tr>'+headerCols+'</tr></thead><tbody>'+rows+'</tbody></table>';
 }
 function setLbPeriod(p,btn){_lbPeriodFilter=p;document.querySelectorAll('#lb-period-tabs .lb-tab').forEach(function(t){t.classList.remove('active');});btn.classList.add('active');renderLeaderboard();}
 function unlockLBDelete(){var pw=prompt('Enter teacher code to unlock delete controls:');if(!pw)return;var valid=false;for(var k in TEACHERS){if(pw.toUpperCase()===TEACHERS[k].teacherCode){valid=true;break;}}if(!valid){notify('Incorrect code','red');return;}_lbDeleteUnlocked=true;var btn=document.getElementById('lb-teacher-unlock');if(btn){btn.textContent='Unlocked';btn.style.borderColor='var(--gold)';btn.style.color='var(--gold)';}notify('Delete controls unlocked','green');renderLeaderboard();}
-async function lbDeleteEntry(name,period){if(!confirm('Remove "'+name+'" from the leaderboard?'))return;try{await fetch(OLD_SUPA_URL+'/rest/v1/scores?name=eq.'+encodeURIComponent(name)+'&period=eq.'+encodeURIComponent(period)+'&game=eq.chronicles',{method:'DELETE',headers:OLD_HEADERS});notify('Removed','green');await loadLeaderboard();}catch(e){notify('Error removing entry','red');}}
+async function lbDeleteEntry(name,period){if(!confirm('Remove "'+name+'" from the leaderboard?'))return;try{await fetch(AC_SUPA_URL+'/rest/v1/ac_results?name=eq.'+encodeURIComponent(name)+'&period=eq.'+encodeURIComponent(period)+'&unit_id=eq.'+SHELL_UNIT_ID,{method:'DELETE',headers:AC_HEADERS});notify('Removed','green');await loadLeaderboard();}catch(e){notify('Error removing entry','red');}}
 
 // ── SUPABASE SYNC ─────────────────────────────────────────────────────────
 async function syncScore(){
+  // All persistence handled by pushACResult into ac_results
+  await pushACResult();
+}
+
+async function pushACResult(){
   if(!G||!G.name||G.name==='Guest')return;
-  var acc=G.totalAnswers>0?Math.round((G.correctAnswers||0)/G.totalAnswers*100):0;
+  var storyAcc=G.totalAnswers>0?Math.round(G.correctAnswers/G.totalAnswers*100):0;
+  var acc=G.combinedBestAccuracy||storyAcc;
+  var trophy=acc===100?'historian':acc>=90?'gold':acc>=80?'silver':acc>=70?'bronze':acc>=60?'completed':'tryagain';
   try{
-    await fetch(OLD_SUPA_URL+'/rest/v1/scores',{method:'POST',headers:Object.assign({},OLD_HEADERS,{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify({game:'chronicles',name:G.name,period:G.period||'0',score:G.score||0,chapters:G.chaptersCompleted.length,cards:G.cardsEarned.length,accuracy:acc,correctAnswers:G.correctAnswers||0,totalAnswers:G.totalAnswers||0,updatedAt:new Date().toISOString()})});
-  }catch(e){}
-  try{
-    await fetch(AC_SUPA_URL+'/rest/v1/scores',{method:'POST',headers:Object.assign({},AC_HEADERS,{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify({game:'chronicles',name:G.name,period:G.period||'0',score:G.score||0,chapters:G.chaptersCompleted.length,cards:G.cardsEarned.length,accuracy:acc,correctAnswers:G.correctAnswers||0,totalAnswers:G.totalAnswers||0,updatedAt:new Date().toISOString()})});
-  }catch(e){}
+    var existing=await fetch(AC_SUPA_URL+'/rest/v1/ac_results?name=eq.'+encodeURIComponent(G.name)+'&period=eq.'+encodeURIComponent(G.period||'')+'&unit_id=eq.'+SHELL_UNIT_ID,{headers:AC_HEADERS});
+    var rows=await existing.json();var prev=rows&&rows[0];
+    var bestScore=prev?Math.max(prev.best_score||0,G.score||0):G.score||0;
+    var bestAcc=prev?Math.max(prev.best_accuracy||0,acc):acc;
+    var tierOrder=['tryagain','completed','bronze','silver','gold','historian'];
+    var bestTrophy=prev?tierOrder.indexOf(trophy)>tierOrder.indexOf(prev.trophy||'tryagain')?trophy:prev.trophy:trophy;
+    var attempts=(prev?prev.attempts||1:0)+1;
+    await fetch(AC_SUPA_URL+'/rest/v1/ac_results?on_conflict=name,period,unit_id',{method:'POST',headers:Object.assign({},AC_HEADERS,{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify({name:G.name,period:G.period||'',unit_id:SHELL_UNIT_ID,best_score:bestScore,best_accuracy:bestAcc,trophy:bestTrophy,attempts:attempts,cards:G.cardsEarned?G.cardsEarned.length:0,updated_at:new Date().toISOString()})});
+    notifyShellComplete();
+  }catch(e){console.log('AC result push failed:',e);}
 }
 
 // ── TEACHER DASHBOARD ─────────────────────────────────────────────────────
 async function loadTeacherData(){
   document.getElementById('td-sync-status').textContent='Loading class data…';
-  try{var r=await fetch(OLD_SUPA_URL+'/rest/v1/scores?game=eq.chronicles&order=score.desc',{headers:OLD_HEADERS});var data=await r.json();window._tdStudents=data||[];renderTeacherView(window._tdStudents);}
+  try{var r=await fetch(AC_SUPA_URL+'/rest/v1/ac_results?unit_id=eq.'+SHELL_UNIT_ID+'&order=best_accuracy.desc',{headers:AC_HEADERS});var data=await r.json();window._tdStudents=data||[];renderTeacherView(window._tdStudents);}
   catch(e){document.getElementById('td-sync-status').textContent='Could not load data.';}
 }
 function renderTeacherView(students){
@@ -1705,35 +1746,32 @@ function renderTeacherView(students){
   var periods=Array.from(new Set(everyone.map(function(s){return s.period||'0';}).filter(Boolean))).sort();
   document.getElementById('td-period-tabs').innerHTML=['all'].concat(periods).map(function(p){return '<button class="lb-tab'+(_tdPeriod===p?' active':'')+'" onclick="tdFilterPeriod(\''+p+'\',this)">'+(p==='all'?'All Periods':p==='0'?'Guest':'Period '+p)+'</button>';}).join('');
   var students2=_tdPeriod==='all'?everyone:everyone.filter(function(s){return (s.period||'0')===_tdPeriod;});
-  var avgScore=students2.length?Math.round(students2.reduce(function(a,s){return a+(s.score||0);},0)/students2.length):0;
-  var withAns=students2.filter(function(s){return s.totalAnswers>0;});
-  var avgAcc=withAns.length?Math.round(withAns.reduce(function(a,s){return a+Math.round((s.correctAnswers||0)/s.totalAnswers*100);},0)/withAns.length):0;
-  var completed=students2.filter(function(s){return (s.chapters||0)>=CHAPTERS.length;}).length;
+  var avgScore=students2.length?Math.round(students2.reduce(function(a,s){return a+(s.best_score||0);},0)/students2.length):0;
+  var withAcc=students2.filter(function(s){return s.best_accuracy>0;});
+  var avgAcc=withAcc.length?Math.round(withAcc.reduce(function(a,s){return a+(s.best_accuracy||0);},0)/withAcc.length):0;
+  var golds=students2.filter(function(s){return s.trophy==='gold'||s.trophy==='historian';}).length;
   document.getElementById('td-sync-status').textContent=everyone.length+' total students — last updated '+new Date().toLocaleTimeString();
-  document.getElementById('td-summary').innerHTML=[{icon:'👥',val:students2.length,lbl:'Students'},{icon:'⭐',val:avgScore.toLocaleString(),lbl:'Avg Score'},{icon:'✅',val:avgAcc+'%',lbl:'Avg Accuracy'},{icon:'🏆',val:completed,lbl:'Finished Unit'}].map(function(s){return '<div style="background:var(--bg2);border:1px solid var(--border2);padding:12px;text-align:center"><div style="font-size:22px;margin-bottom:4px">'+s.icon+'</div><div style="font-family:var(--bebas);font-size:22px;color:var(--gold)">'+s.val+'</div><div style="font-family:var(--dm);font-size:8px;color:var(--text3);margin-top:2px;letter-spacing:1px">'+s.lbl+'</div></div>';}).join('');
-  document.getElementById('td-chapter-bars').innerHTML=CHAPTERS.map(function(ch,i){var reached=students2.filter(function(s){return (s.chapters||0)>i;}).length;var pct=students2.length?Math.round(reached/students2.length*100):0;var col=pct>=75?'var(--green2)':pct>=50?'var(--gold)':'var(--red2)';return '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="font-family:var(--dm);font-size:9px;color:var(--text2);width:120px;flex-shrink:0">Ch.'+( i+1)+' '+ch.title.substring(0,14)+'…</div><div style="flex:1;height:14px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden"><div style="width:'+pct+'%;height:100%;background:'+col+';border-radius:2px;transition:width 0.5s"></div></div><div style="font-family:var(--bebas);font-size:12px;color:'+col+';min-width:36px;text-align:right">'+pct+'%</div><div style="font-family:var(--dm);font-size:8px;color:var(--text3);min-width:50px">'+reached+'/'+students2.length+'</div></div>';}).join('')||'<div style="font-family:var(--crimson);color:var(--text3);font-style:italic">No data yet.</div>';
+  document.getElementById('td-summary').innerHTML=[{icon:'👥',val:students2.length,lbl:'Students'},{icon:'⭐',val:avgScore.toLocaleString(),lbl:'Avg Score'},{icon:'✅',val:avgAcc+'%',lbl:'Avg Accuracy'},{icon:'🥇',val:golds,lbl:'Gold+ Trophies'}].map(function(s){return '<div style="background:var(--bg2);border:1px solid var(--border2);padding:12px;text-align:center"><div style="font-size:22px;margin-bottom:4px">'+s.icon+'</div><div style="font-family:var(--bebas);font-size:22px;color:var(--gold)">'+s.val+'</div><div style="font-family:var(--dm);font-size:8px;color:var(--text3);margin-top:2px;letter-spacing:1px">'+s.lbl+'</div></div>';}).join('');
+  document.getElementById('td-chapter-bars').innerHTML='<div style="font-family:var(--crimson);font-size:13px;color:var(--text2);font-style:italic">Chapter-level breakdown not available — see accuracy and trophy data above.</div>';
   var rosterEl=document.getElementById('td-roster');
   if(!students2.length){rosterEl.innerHTML='<div style="font-family:var(--crimson);color:var(--text3);font-style:italic;padding:12px">No students yet.</div>';return;}
-  var sorted=students2.slice().sort(function(a,b){
-    var va,vb;
-    if(tdSort==='score'){va=a.score||0;vb=b.score||0;}
-    else if(tdSort==='chapters'){va=a.chapters||0;vb=b.chapters||0;}
-    else if(tdSort==='accuracy'){va=a.totalAnswers>0?Math.round((a.correctAnswers||0)/a.totalAnswers*100):0;vb=b.totalAnswers>0?Math.round((b.correctAnswers||0)/b.totalAnswers*100):0;}
-    else{va=(a.name||'').toLowerCase();vb=(b.name||'').toLowerCase();}
-    return tdSortDir*(va<vb?-1:va>vb?1:0);
-  });
-  rosterEl.innerHTML='<table class="lb-table" style="margin-bottom:20px"><thead><tr><th>#</th><th>STUDENT</th><th>SCORE</th><th>CH%</th><th>CORRECT%</th><th>GRADE%</th><th></th></tr></thead><tbody>'+sorted.map(function(s,i){
-    var acc=s.totalAnswers>0?Math.round((s.correctAnswers||0)/s.totalAnswers*100):null;
-    var chPct=CHAPTERS.length?Math.round((s.chapters||0)/CHAPTERS.length*100):0;
-    var grade=acc===null?'—':Math.round(chPct*0.5+acc*0.5)+'%';
-    var gv=acc===null?0:Math.round(chPct*0.5+acc*0.5);
-    var gc=acc===null?'var(--text3)':gv>=90?'var(--green2)':gv>=80?'var(--teal2)':gv>=70?'var(--gold)':gv>=60?'var(--gold2)':'var(--red2)';
-    return '<tr><td style="font-family:var(--dm);font-size:10px;color:var(--text3)">'+(i+1)+'</td><td><div class="lb-name">'+(s.name||'—')+'</div></td><td class="lb-score">'+(s.score||0).toLocaleString()+'</td><td style="font-family:var(--dm);font-size:10px;color:var(--text2)">'+chPct+'%</td><td style="font-family:var(--dm);font-size:10px;color:var(--gold)">'+(acc!==null?acc+'%':'—')+'</td><td style="font-family:var(--bebas);font-size:14px;color:'+gc+'">'+grade+'</td><td><button onclick="deleteStudent(\''+s.name.replace(/'/g,"\\'")+'\',\''+s.period+'\')" style="font-family:var(--bebas);font-size:10px;background:transparent;border:1px solid var(--red2);color:var(--red2);padding:3px 8px;cursor:pointer">✕</button></td></tr>';
+  var tierColor={historian:'var(--gold3)',gold:'var(--gold)',silver:'#c0c0c0',bronze:'#cd7f32',completed:'var(--green2)',tryagain:'var(--red2)'};
+  var sorted=students2.slice().sort(function(a,b){return (b.best_score||0)-(a.best_score||0);});
+  rosterEl.innerHTML='<table class="lb-table" style="margin-bottom:20px"><thead><tr><th>#</th><th>STUDENT</th><th>PD</th><th>SCORE</th><th>ACCURACY</th><th>TROPHY</th><th>CARDS</th><th></th></tr></thead><tbody>'+sorted.map(function(s,i){
+    var tc=tierColor[s.trophy]||'var(--text3)';
+    return '<tr><td style="font-family:var(--dm);font-size:10px;color:var(--text3)">'+(i+1)+'</td>'+
+      '<td><div class="lb-name">'+(s.name||'—')+'</div></td>'+
+      '<td style="font-family:var(--dm);font-size:10px;color:var(--text2)">'+(s.period&&s.period!=='0'?'Pd '+s.period:'—')+'</td>'+
+      '<td class="lb-score">'+(s.best_score||0).toLocaleString()+'</td>'+
+      '<td style="font-family:var(--dm);font-size:10px;color:var(--gold)">'+(s.best_accuracy||0)+'%</td>'+
+      '<td style="font-family:var(--bebas);font-size:13px;color:'+tc+'">'+(s.trophy||'—').toUpperCase()+'</td>'+
+      '<td style="font-family:var(--dm);font-size:10px;color:var(--text2)">'+(s.cards||0)+'</td>'+
+      '<td><button onclick="deleteStudent(\''+s.name.replace(/'/g,"\'")+'\'\',\''+s.period+'\')" style="font-family:var(--bebas);font-size:10px;background:transparent;border:1px solid var(--red2);color:var(--red2);padding:3px 8px;cursor:pointer">✕</button></td></tr>';
   }).join('')+'</tbody></table>';
 }
 function tdFilterPeriod(p,btn){_tdPeriod=p;document.querySelectorAll('#td-period-tabs .lb-tab').forEach(function(t){t.classList.remove('active');});btn.classList.add('active');renderTeacherView(window._tdStudents||[]);}
-async function deleteStudent(name,period){if(!confirm('Remove "'+name+'" from the leaderboard?'))return;try{await fetch(OLD_SUPA_URL+'/rest/v1/scores?name=eq.'+encodeURIComponent(name)+'&period=eq.'+encodeURIComponent(period)+'&game=eq.chronicles',{method:'DELETE',headers:OLD_HEADERS});notify('Removed','green');loadTeacherData();}catch(e){notify('Error removing entry','red');}}
-async function resetAllScores(){if(!confirm('Reset ALL scores for Chronicles of Change?'))return;if(!confirm('Are you sure? This cannot be undone.'))return;try{await fetch(OLD_SUPA_URL+'/rest/v1/scores?game=eq.chronicles',{method:'DELETE',headers:OLD_HEADERS});notify('Leaderboard reset','green');loadTeacherData();}catch(e){notify('Error','red');}}
+async function deleteStudent(name,period){if(!confirm('Remove "'+name+'" from the leaderboard?'))return;try{await fetch(AC_SUPA_URL+'/rest/v1/ac_results?name=eq.'+encodeURIComponent(name)+'&period=eq.'+encodeURIComponent(period)+'&unit_id=eq.'+SHELL_UNIT_ID,{method:'DELETE',headers:AC_HEADERS});notify('Removed','green');loadTeacherData();}catch(e){notify('Error removing entry','red');}}
+async function resetAllScores(){if(!confirm('Reset ALL scores for Chronicles of Change?'))return;if(!confirm('Are you sure? This cannot be undone.'))return;try{await fetch(AC_SUPA_URL+'/rest/v1/ac_results?unit_id=eq.'+SHELL_UNIT_ID,{method:'DELETE',headers:AC_HEADERS});notify('Leaderboard reset','green');loadTeacherData();}catch(e){notify('Error','red');}}
 
 // ── ANTI-COPY ─────────────────────────────────────────────────────────────
 (function(){
@@ -1745,7 +1783,16 @@ async function resetAllScores(){if(!confirm('Reset ALL scores for Chronicles of 
 })();
 
 // ── BOOT ──────────────────────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded',function(){showLoginGate();});
+window.addEventListener('DOMContentLoaded',function(){
+  var sp=getShellProfile();
+  if(sp&&sp.name&&sp.name!=='Guest'){
+    var saved=loadGame();
+    if(saved&&saved.name){G=saved;normalizeG();afterLogin();return;}
+    G=newGame(sp.name,'olson',sp.period||'0',sp.avatar||'activist_m');
+    G.shellLinked=true;saveGame();afterLogin();return;
+  }
+  showLoginGate();
+});
 </script>
 </body>
 </html>
