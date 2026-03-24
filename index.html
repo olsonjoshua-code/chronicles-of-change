@@ -594,7 +594,7 @@ body.hud-active #root{padding-top:68px;}
     <div class="briefing-header">
       <div>
         <div class="briefing-eyebrow" id="briefing-eyebrow">LESSON 38 · MISSION BRIEFING</div>
-        <div class="briefing-title" id="briefing-title">A World Divided</div>
+        <div class="briefing-title" id="briefing-title">Civil Rights Era</div>
       </div>
       <button class="briefing-close-btn" onclick="closeBriefing()">✕ Close</button>
     </div>
@@ -633,8 +633,8 @@ body.hud-active #root{padding-top:68px;}
 
     <!-- Trophy badge -->
     <div class="complete-badge" id="complete-badge">🏆</div>
-    <div class="complete-unit-lbl" id="complete-unit-lbl">UNIT 5B</div>
-    <div class="complete-lesson-title" id="complete-lesson-title">A World Divided</div>
+    <div class="complete-unit-lbl" id="complete-unit-lbl">UNIT 6</div>
+    <div class="complete-lesson-title" id="complete-lesson-title">Civil Rights Era</div>
     <div class="complete-tier" id="complete-tier" style="color:var(--gold)">GOLD — 90%</div>
 
     <!-- Stats row -->
@@ -669,7 +669,7 @@ body.hud-active #root{padding-top:68px;}
     <div class="complete-btn-group">
       <!-- Retry same lesson -->
       <button class="btn full" onclick="retryLesson()"><span>↺ Retry This Lesson</span></button>
-      <!-- Replay entire unit from Lesson 38 (always visible) -->
+      <!-- Replay entire unit from Lesson 42 (always visible) -->
       <button class="btn full" id="btn-replay-all" onclick="replayFromBeginning()" style="border-color:var(--gold2);color:var(--gold2);display:none;"><span>⟳ Replay Unit From Beginning</span></button>
       <!-- Return to unit hub -->
       <button class="btn full green" onclick="returnToUnitHub()"><span>← Return to Unit Hub</span></button>
@@ -789,7 +789,7 @@ body.hud-active #root{padding-top:68px;}
     <button class="overlay-close" onclick="document.getElementById('cardcoll-overlay').classList.remove('show')">CLOSE</button>
   </div>
   <div style="font-family:var(--crimson);font-size:15px;color:var(--text2);margin-bottom:16px;font-style:italic;">
-    Earn historical figure cards by completing lessons. Each card tells the story of a key Cold War figure.
+    Earn historical figure cards by completing lessons. Each card tells the story of a key Civil Rights Era figure.
   </div>
   <div class="card-grid" id="cardcoll-grid"></div>
 </div>
@@ -805,7 +805,7 @@ const SAVE_KEY   = 'chroniclesofchange_v1_save';
 const UNIT_ID     = 'unit6';
 
 // ── GOLD ECONOMY ──────────────────────────────────────
-// These are the canonical reward values for Unit 5B.
+// These are the canonical reward values for UNIT 6.
 // All gold earned here flows into the shell's global wallet
 // and from there into the RPG. Adjust by lesson type below.
 //
@@ -1985,7 +1985,7 @@ function renderUnitHub() {
     bannerEl.innerHTML = `
       <div class="hub-banner">
         <div class="hub-banner-top">
-          <div class="hub-banner-label">UNIT 5B — EARLY COLD WAR</div>
+          <div class="hub-banner-label">UNIT 6 — CIVIL RIGHTS ERA</div>
           <div class="hub-banner-count">${done}/${total} LESSONS</div>
         </div>
         <div class="hub-progress-bar">
@@ -2049,7 +2049,7 @@ function renderUnitHub() {
           UNIT COMPLETE — Want to improve your score?
         </div>
         <button class="btn full" onclick="replayFromBeginning()" style="border-color:var(--teal2);color:var(--teal2);">
-          <span>↺ Replay Unit from Lesson 38</span>
+          <span>↺ Replay Unit from Lesson 42</span>
         </button>
       </div>`;
   }
@@ -2564,7 +2564,7 @@ function returnToShell() {
 }
 
 function replayFromBeginning() {
-  // Reset all lesson progress and start from Lesson 38
+  // Reset all lesson progress and start from Lesson 42
   P.lessonsCompleted = [];
   P.lessonBestScores = {};
   saveP();
@@ -2595,7 +2595,7 @@ function printCertificate() {
       <div style="text-align:center;margin-bottom:24px;">
         <div style="font-size:36px;margin-bottom:8px;">🏛️</div>
         <div style="font-size:28px;font-weight:bold;letter-spacing:3px;color:#c83020;">AMERICAN CHRONICLES</div>
-        <div style="font-size:14px;letter-spacing:2px;color:#666;margin-top:4px;">UNIT 5B — EARLY COLD WAR · CERTIFICATE OF COMPLETION</div>
+        <div style="font-size:14px;letter-spacing:2px;color:#666;margin-top:4px;">UNIT 6 — CIVIL RIGHTS ERA · CERTIFICATE OF COMPLETION</div>
       </div>
       <div style="text-align:center;margin-bottom:20px;padding:16px;border:1px solid #c83020;">
         <div style="font-size:13px;color:#666;letter-spacing:1px;">THIS CERTIFIES THAT</div>
