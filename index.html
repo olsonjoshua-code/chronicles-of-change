@@ -866,22 +866,98 @@ const LESSONS = [
     briefing: {
       location: 'United States',
       date: '1945–1960',
-      role: 'Postwar journalist',
-      text: '[BRIEFING PLACEHOLDER — Lesson 41]\n\nThis briefing will cover the postwar economic boom, suburban expansion, the GI Bill, television and consumer culture, and the uneven distribution of postwar prosperity. Final content will be loaded from JSON.',
-      tags: ['Postwar Boom','GI Bill','Suburbanization','Consumer Culture','SS.912.A.7']
+      role: 'Postwar social observer',
+      text: 'World War II is over, and much of the United States is entering an era of rising incomes, new suburbs, and expanding consumer culture. Highways spread across the nation, families move into developments like Levittown, and millions of children are born during the baby boom. Yet beneath the confidence of the 1950s, this new way of life also creates pressure to conform, reinforces traditional family roles, and leaves some Americans wondering whether prosperity really means progress for everyone.',
+      tags: ['SS.912.A.7.2', 'SS.912.A.7.1']
     },
     displayCount: 5,
-    goldRules: { perCorrect: 20, completionBonus: 25, perfectBonus: 25 },
-    rewards: { badge: 'Postwar America', cards: ['Dwight Eisenhower'] },
+    goldRules: {
+      perCorrect: 20,
+      completionBonus: 25,
+      perfectBonus: 25
+    },
+    rewards: { badge: 'Postwar Boom', cards: ['Levittown', 'Baby Boom'] },
     bank: [
-      { id:'6-L41-Q01', text:'[PLACEHOLDER — Lesson 41, Q1]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.1' },
-      { id:'6-L41-Q02', text:'[PLACEHOLDER — Lesson 41, Q2]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.1' },
-      { id:'6-L41-Q03', text:'[PLACEHOLDER — Lesson 41, Q3]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.2' },
-      { id:'6-L41-Q04', text:'[PLACEHOLDER — Lesson 41, Q4]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.2' },
-      { id:'6-L41-Q05', text:'[PLACEHOLDER — Lesson 41, Q5]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.2' },
-      { id:'6-L41-Q06', text:'[PLACEHOLDER — Lesson 41, Q6]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.3' },
-      { id:'6-L41-Q07', text:'[PLACEHOLDER — Lesson 41, Q7]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.3' },
-      { id:'6-L41-Q08', text:'[PLACEHOLDER — Lesson 41, Q8]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.3' },
+      {
+        id: '6-L41-Q1',
+        text: 'Why are the 1950s often remembered as an age of affluence in the United States?',
+        choices: ['Many Americans experienced rising incomes, expanded access to homes and consumer goods, and growing entry into the middle class.', 'Most Americans stopped buying consumer goods because wartime rationing remained in place for more than a decade after 1945.', 'The federal government required all families to move into identical suburbs and provided free housing to nearly every citizen.', 'Economic growth was concentrated almost entirely in farming regions, while cities and suburbs lost population and purchasing power.'],
+        correctAnswer: 'Many Americans experienced rising incomes, expanded access to homes and consumer goods, and growing entry into the middle class.',
+        explanation: 'Lesson 41 frames the 1950s as an era of peace, prosperity, and progress in which many working-class families became affluent enough to join the middle class.',
+        standard: 'SS.912.A.7.1'
+      },
+      {
+        id: '6-L41-Q2',
+        text: 'What best explains the political limitation of Truman’s Fair Deal after World War II?',
+        choices: ['Truman tried to guide the nation into a peacetime economy, but a Republican Congress blocked much of his reform program.', 'Truman refused to propose domestic reforms because he believed all federal energy should remain focused on wartime production.', 'Truman’s Fair Deal passed easily, but the Supreme Court later overturned it because it expanded labor unions too aggressively.', 'Truman abandoned the Fair Deal after Southern Democrats demanded that he focus only on suburban growth and road building.'],
+        correctAnswer: 'Truman tried to guide the nation into a peacetime economy, but a Republican Congress blocked much of his reform program.',
+        explanation: 'The lesson summary states that Truman guided the transition to a peacetime economy, but a Republican Congress denied him approval for much of the Fair Deal.',
+        standard: 'SS.912.A.7.1'
+      },
+      {
+        id: '6-L41-Q3',
+        text: 'Why did Congress pass the Taft-Hartley Act in the years immediately after World War II?',
+        choices: ['Lawmakers wanted to limit union power after a wave of strikes threatened to disrupt the peacetime economy.', 'Lawmakers wanted to strengthen union control over wages because business leaders were refusing to hire returning veterans.', 'Lawmakers wanted to end suburban growth by requiring all industries to keep their factories in older northern cities.', 'Lawmakers wanted to eliminate collective bargaining because most workers had begun supporting socialist third parties.'],
+        correctAnswer: 'Lawmakers wanted to limit union power after a wave of strikes threatened to disrupt the peacetime economy.',
+        explanation: 'Lesson 41 identifies the Taft-Hartley Act as Congress’s response to postwar labor strikes that threatened the economy.',
+        standard: 'SS.912.A.7.1'
+      },
+      {
+        id: '6-L41-Q4',
+        text: 'What caused the baby boom that followed World War II?',
+        choices: ['Improving economic conditions encouraged earlier marriage and larger families, producing a sharp rise in births from 1946 to 1964.', 'A federal law awarded tax-free land to families with at least four children, which caused births to spike almost overnight.', 'The end of immigration restrictions caused a sudden rise in foreign births that demographers counted as the baby boom.', 'Americans delayed marriage until later in life, then had fewer children in the 1950s than during the Depression years.'],
+        correctAnswer: 'Improving economic conditions encouraged earlier marriage and larger families, producing a sharp rise in births from 1946 to 1964.',
+        explanation: 'The lesson explains that brighter postwar conditions encouraged marriage and childbearing, producing the largest population boom in U.S. history.',
+        standard: 'SS.912.A.7.1'
+      },
+      {
+        id: '6-L41-Q5',
+        text: 'Why did places like Levittown become symbols of postwar suburban growth?',
+        choices: ['They offered relatively inexpensive homes that attracted young families seeking space, stability, and a suburban version of the American dream.', 'They were designed mainly as temporary housing for migrant farmworkers and war refugees relocating to the Northeast.', 'They became popular because cities had outlawed mortgages, leaving most families with no option but to move to the countryside.', 'They grew around military bases and were intended primarily for retired officers rather than for ordinary middle-class families.'],
+        correctAnswer: 'They offered relatively inexpensive homes that attracted young families seeking space, stability, and a suburban version of the American dream.',
+        explanation: 'Lesson 41 identifies Levittown as a model suburb offering inexpensive houses on small lots to homebuyers, especially young families.',
+        standard: 'SS.912.A.7.2'
+      },
+      {
+        id: '6-L41-Q6',
+        text: 'How did postwar suburbia reinforce traditional family roles in the 1950s?',
+        choices: ['It emphasized the image of a breadwinning father and a stay-at-home mother as the ideal form of family life.', 'It encouraged most married women to become factory workers while fathers stayed home to manage household responsibilities.', 'It erased expectations about family life by making single adults the social and economic center of suburban communities.', 'It reduced pressure to marry because advertisers and educators promoted independent living over family-centered neighborhoods.'],
+        correctAnswer: 'It emphasized the image of a breadwinning father and a stay-at-home mother as the ideal form of family life.',
+        explanation: 'The lesson describes suburbia as revolving around the so-called traditional family, reinforced by media, experts, and popular culture.',
+        standard: 'SS.912.A.7.2'
+      },
+      {
+        id: '6-L41-Q7',
+        text: 'Why did the Sunbelt grow so rapidly in the postwar decades?',
+        choices: ['Jobs, tourism, water projects, and air conditioning helped draw people and businesses to states such as California, Texas, and Florida.', 'Most heavy industry shut down in the North overnight, forcing nearly all union workers to relocate to the rural Southwest.', 'Federal law required new housing developments to be built only in desert states, which concentrated growth in the Sunbelt.', 'The Sunbelt grew mainly because it was untouched by the Depression, unlike the rest of the nation’s urban centers.'],
+        correctAnswer: 'Jobs, tourism, water projects, and air conditioning helped draw people and businesses to states such as California, Texas, and Florida.',
+        explanation: 'Lesson 41 links Sunbelt growth to migration, tourism, water projects, and home air conditioning, especially in California, Texas, and Florida.',
+        standard: 'SS.912.A.7.2'
+      },
+      {
+        id: '6-L41-Q8',
+        text: 'How did the interstate highway system reshape American life in the 1950s?',
+        choices: ['It connected the nation more efficiently and encouraged suburban growth, commuting, and the rise of shopping centers outside cities.', 'It reduced automobile ownership by making train travel cheaper and forcing families to rely more on public transportation.', 'It mainly served military bases and had little effect on how ordinary Americans lived, shopped, or traveled after the war.', 'It slowed migration to the suburbs because new roads made urban neighborhoods more desirable than outlying developments.'],
+        correctAnswer: 'It connected the nation more efficiently and encouraged suburban growth, commuting, and the rise of shopping centers outside cities.',
+        explanation: 'The lesson summary states that federally funded highways connected the nation and helped expand suburbs and suburban shopping centers.',
+        standard: 'SS.912.A.7.2'
+      },
+      {
+        id: '6-L41-Q9',
+        text: 'Why was the polio vaccine seen as a major sign of postwar progress?',
+        choices: ['It helped end a long and frightening battle against a disease that had caused paralysis and death in many children and adults.', 'It replaced antibiotics as the main cure for nearly all infectious diseases, eliminating most public health concerns by 1960.', 'It was the first federally required vaccine, and families had to receive it before they were allowed to move into the suburbs.', 'It was developed mainly to protect soldiers overseas, and only later became available for civilians living in major cities.'],
+        correctAnswer: 'It helped end a long and frightening battle against a disease that had caused paralysis and death in many children and adults.',
+        explanation: 'The textbook names the polio vaccine as one of the most appreciated medical advances of the era because it ended a long battle with a dreaded disease.',
+        standard: 'SS.912.A.7.2'
+      },
+      {
+        id: '6-L41-Q10',
+        text: 'What tension existed beneath the image of 1950s prosperity and stability?',
+        choices: ['Many Americans enjoyed comfort and security, but some young people began pushing back against social conformity and rigid expectations.', 'Most Americans rejected family life and consumer culture, causing suburbs to fail and birthrates to drop sharply after 1946.', 'Economic prosperity eliminated cultural conflict entirely, leaving few disagreements about values, music, or generational identity.', 'The nation’s new wealth led most people to abandon television, advertising, and popular entertainment in favor of simpler living.'],
+        correctAnswer: 'Many Americans enjoyed comfort and security, but some young people began pushing back against social conformity and rigid expectations.',
+        explanation: 'The lesson’s ‘Rebelling Against Conformity’ section shows that postwar suburbia could feel safe and prosperous while still creating pressure to conform, especially for teenagers.',
+        standard: 'SS.912.A.7.2'
+      },
     ]
   },
 
@@ -892,28 +968,104 @@ const LESSONS = [
     id: 'lesson42',
     label: 'LESSON 42',
     title: 'Two Americas',
-    sub: 'United States · 1945–1960',
+    sub: 'United States · 1950s–1960s',
     icon: '⚖️',
     type: 'lesson',
     briefing: {
       location: 'United States',
-      date: '1945–1960',
-      role: 'Sociologist',
-      text: '[BRIEFING PLACEHOLDER — Lesson 42]\n\nThis briefing will examine the gap between postwar prosperity and ongoing poverty, racial inequality, the persistence of Jim Crow, and the hidden America excluded from the suburban dream. Final content from JSON.',
-      tags: ['Jim Crow','Inequality','Hidden Poverty','Segregation','SS.912.A.7']
+      date: '1950s–1960s',
+      role: 'Social investigator',
+      text: 'The 1950s are often remembered as years of peace, prosperity, and suburban comfort. But behind the image of abundance lies another America—one marked by low wages, rundown housing, discrimination, and neighborhoods left out of the postwar boom. Social critics begin to argue that poverty has not disappeared at all. It has simply become easier for affluent Americans not to see it.',
+      tags: ['SS.912.A.7.4', 'SS.912.A.7.5', 'SS.912.A.7.3']
     },
     displayCount: 5,
-    goldRules: { perCorrect: 20, completionBonus: 25, perfectBonus: 25 },
-    rewards: { badge: 'Two Americas', cards: ['Thurgood Marshall'] },
+    goldRules: {
+      perCorrect: 20,
+      completionBonus: 25,
+      perfectBonus: 25
+    },
+    rewards: { badge: 'Invisible America', cards: ['The Other America', 'Poverty Line'] },
     bank: [
-      { id:'6-L42-Q01', text:'[PLACEHOLDER — Lesson 42, Q1]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.3' },
-      { id:'6-L42-Q02', text:'[PLACEHOLDER — Lesson 42, Q2]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.3' },
-      { id:'6-L42-Q03', text:'[PLACEHOLDER — Lesson 42, Q3]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.4' },
-      { id:'6-L42-Q04', text:'[PLACEHOLDER — Lesson 42, Q4]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.4' },
-      { id:'6-L42-Q05', text:'[PLACEHOLDER — Lesson 42, Q5]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.4' },
-      { id:'6-L42-Q06', text:'[PLACEHOLDER — Lesson 42, Q6]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.5' },
-      { id:'6-L42-Q07', text:'[PLACEHOLDER — Lesson 42, Q7]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.5' },
-      { id:'6-L42-Q08', text:'[PLACEHOLDER — Lesson 42, Q8]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.5' },
+      {
+        id: '6-L42-Q1',
+        text: 'What does the title ‘Two Americas’ suggest about the United States in the postwar era?',
+        choices: ['One America enjoyed rising prosperity, while another lived with persistent poverty and exclusion despite the nation’s economic growth.', 'One America supported democracy and the other supported communism, creating a domestic version of the Cold War inside the United States.', 'One America was located in cities and the other in rural areas, but both shared wealth and opportunity at nearly equal levels.', 'One America was made up of immigrants and the other of native-born citizens, creating conflict over voting rights and citizenship.'],
+        correctAnswer: 'One America enjoyed rising prosperity, while another lived with persistent poverty and exclusion despite the nation’s economic growth.',
+        explanation: 'The lesson’s central idea is that prosperity and poverty existed side by side. Michael Harrington’s phrase captured the contrast between affluent America and the hidden poor.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-L42-Q2',
+        text: 'What does the lesson’s income data suggest about prosperity in the 1950s?',
+        choices: ['Economic growth was real, but wealth was distributed unevenly, with the top families receiving far more income than the poorest families.', 'Economic growth reached almost every family equally, proving that poverty had mostly disappeared by the end of the decade.', 'Most wealth flowed to rural farm families, while urban and suburban families saw little improvement in wages or living standards.', 'Income differences narrowed so much that social critics stopped using poverty as an important measure of American inequality.'],
+        correctAnswer: 'Economic growth was real, but wealth was distributed unevenly, with the top families receiving far more income than the poorest families.',
+        explanation: 'The lesson opens by stressing that not all Americans benefited equally from prosperity, and the graph shows a striking gap between the top and bottom fifths of families.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-L42-Q3',
+        text: 'Why was Michael Harrington’s book The Other America so influential in the early 1960s?',
+        choices: ['It shocked middle-class readers by showing how widespread poverty remained in a nation that many assumed had become fully prosperous.', 'It argued that poverty was mostly caused by personal laziness, which led Americans to support stricter welfare rules and policing.', 'It praised suburban life as proof that the federal government had already solved the deepest economic problems in American society.', 'It focused mainly on foreign poverty and convinced Americans that inequality was a much bigger problem overseas than at home.'],
+        correctAnswer: 'It shocked middle-class readers by showing how widespread poverty remained in a nation that many assumed had become fully prosperous.',
+        explanation: 'The Other America startled readers because it revealed the scale of hidden poverty in the United States and helped spark a national debate about government responsibility.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-L42-Q4',
+        text: 'What did Harrington mean when he argued that poverty in America had become ‘invisible’?',
+        choices: ['Poor families could own a television or car and still live in deteriorating neighborhoods, weak health, and unstable economic conditions.', 'Poor families were counted incorrectly in the census because most of them moved constantly and avoided government officials entirely.', 'Poor families were hidden by federal law, which forbade journalists and photographers from reporting on hunger and slum conditions.', 'Poor families no longer existed in visible communities, because all low-income Americans had moved permanently into suburban housing.'],
+        correctAnswer: 'Poor families could own a television or car and still live in deteriorating neighborhoods, weak health, and unstable economic conditions.',
+        explanation: 'Harrington argued that cheap consumer goods could hide deeper hardship. A family might appear comfortable from a distance while still living with serious deprivation.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-L42-Q5',
+        text: 'Who were the working poor described in Lesson 42?',
+        choices: ['People who held jobs but earned too little to meet basic needs or escape poverty through wages alone.', 'People who refused to seek employment and relied entirely on public charity for food, housing, and clothing.', 'People who worked part-time by choice because they preferred leisure over the opportunities created by postwar growth.', 'People who owned farms or small businesses but temporarily lost money because of the baby boom and suburban expansion.'],
+        correctAnswer: 'People who held jobs but earned too little to meet basic needs or escape poverty through wages alone.',
+        explanation: 'The lesson emphasizes that many poor Americans did work, but their wages were simply too low to lift them above poverty.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-L42-Q6',
+        text: 'What is the poverty line, as described in this lesson?',
+        choices: ['A minimum income level used to estimate the amount of money needed to meet basic needs.', 'A federal tax rate applied only to low-income families who received direct aid from public welfare agencies.', 'A legal standard used by judges to determine whether a person qualified for housing under the Fair Deal.', 'A voting requirement that measured whether citizens had enough property and income to participate in elections.'],
+        correctAnswer: 'A minimum income level used to estimate the amount of money needed to meet basic needs.',
+        explanation: 'Social scientists defined the poverty line as the minimum income needed to live decently, though they debated exactly where it should be drawn.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-L42-Q7',
+        text: 'How did modern definitions of poverty differ from older moral views of pauperism?',
+        choices: ['Modern definitions focused more on income and material conditions, while older views often treated poverty as a moral failing.', 'Modern definitions blamed poverty almost entirely on laziness, while older religious leaders viewed poor people with greater sympathy.', 'Modern definitions rejected the idea of income measurement, while older reformers relied heavily on poverty statistics and surveys.', 'Modern definitions argued that poverty should be judged only by personal character, while older views emphasized economic structure.'],
+        correctAnswer: 'Modern definitions focused more on income and material conditions, while older views often treated poverty as a moral failing.',
+        explanation: 'The lesson contrasts older judgments about pauperism with later social-scientific approaches that treated poverty more objectively as an economic condition.',
+        standard: 'SS.912.A.7.4'
+      },
+      {
+        id: '6-L42-Q8',
+        text: 'According to the lesson, why did poverty persist even during years of national prosperity?',
+        choices: ['Economic growth did not erase racial, class, and structural inequalities that kept many Americans from sharing fully in affluence.', 'Most Americans chose to remain poor because suburban life and industrial work were viewed as culturally undesirable by many families.', 'The federal government banned antipoverty reform because leaders believed poverty helped strengthen family discipline and self-reliance.', 'Consumer goods became so expensive that even wealthy families rapidly fell below the poverty line by the late 1950s.'],
+        correctAnswer: 'Economic growth did not erase racial, class, and structural inequalities that kept many Americans from sharing fully in affluence.',
+        explanation: 'Harrington and the lesson both stress that poverty was rooted in discrimination and unequal social structures, not just individual choices.',
+        standard: 'SS.912.A.7.4'
+      },
+      {
+        id: '6-L42-Q9',
+        text: 'Why did The Other America help inspire a stronger federal response to poverty in the 1960s?',
+        choices: ['It convinced many Americans that poverty was not a minor leftover problem but a large national issue requiring public action.', 'It proved that postwar poverty existed only in the rural South, allowing policymakers to design highly regional solutions.', 'It argued that private charity had already solved most poverty, leaving government to focus mainly on military spending.', 'It persuaded leaders that the poverty line should be abolished because income statistics could not measure hardship accurately.'],
+        correctAnswer: 'It convinced many Americans that poverty was not a minor leftover problem but a large national issue requiring public action.',
+        explanation: 'The lesson notes that Harrington’s work helped trigger a broader discussion about government responsibility and later influenced the War on Poverty.',
+        standard: 'SS.912.A.7.4'
+      },
+      {
+        id: '6-L42-Q10',
+        text: 'How does Lesson 42 complicate the image of the 1950s presented in Lesson 41?',
+        choices: ['It shows that beneath the era’s prosperity, millions of Americans still faced low wages, poor housing, and limited opportunity.', 'It proves that the baby boom and suburban expansion were caused mainly by poverty rather than by postwar economic confidence.', 'It argues that most middle-class families in the 1950s secretly lived below the poverty line despite owning homes and automobiles.', 'It demonstrates that postwar affluence existed only in television advertising and was almost entirely absent from real American life.'],
+        correctAnswer: 'It shows that beneath the era’s prosperity, millions of Americans still faced low wages, poor housing, and limited opportunity.',
+        explanation: 'Lesson 42 works as a corrective to the prosperity story by showing that affluence was real, but far from universal.',
+        standard: 'SS.912.A.7.5'
+      },
     ]
   },
 
@@ -924,28 +1076,104 @@ const LESSONS = [
     id: 'lesson43',
     label: 'LESSON 43',
     title: 'Separate and Unequal',
-    sub: 'United States · 1950–1957',
+    sub: 'The United States · 1945–1955',
     icon: '🏛️',
     type: 'lesson',
     briefing: {
-      location: 'United States',
-      date: '1950–1957',
-      role: 'NAACP attorney',
-      text: '[BRIEFING PLACEHOLDER — Lesson 43]\n\nThis briefing will cover Brown v. Board of Education, the legal dismantling of Plessy v. Ferguson, massive resistance, and the Little Rock crisis. Final content from JSON.',
-      tags: ['Brown v. Board','Plessy v. Ferguson','Little Rock','Massive Resistance','SS.912.A.7']
+      location: 'The United States',
+      date: '1945–1955',
+      role: 'Civil rights legal observer',
+      text: 'After World War II, millions of Americans speak more boldly about freedom and democracy. But for Black Americans, segregation still shapes schools, neighborhoods, jobs, public spaces, and daily behavior. In the South, many of these inequalities are enforced by law. In the North and West, they are often maintained by custom and housing patterns. Yet signs of change are beginning to appear—in sports, in the military, in civil rights organizations, and eventually in the Supreme Court.',
+      tags: ['SS.912.A.7.6', 'SS.912.A.7.5']
     },
     displayCount: 5,
-    goldRules: { perCorrect: 20, completionBonus: 25, perfectBonus: 25 },
-    rewards: { badge: 'Separate and Unequal', cards: ['Thurgood Marshall', 'Earl Warren'] },
+    goldRules: {
+      perCorrect: 20,
+      completionBonus: 25,
+      perfectBonus: 25
+    },
+    rewards: { badge: 'Separate and Unequal', cards: ['Brown v. Board', 'Thurgood Marshall'] },
     bank: [
-      { id:'6-L43-Q01', text:'[PLACEHOLDER — Lesson 43, Q1]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.5' },
-      { id:'6-L43-Q02', text:'[PLACEHOLDER — Lesson 43, Q2]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.5' },
-      { id:'6-L43-Q03', text:'[PLACEHOLDER — Lesson 43, Q3]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.5' },
-      { id:'6-L43-Q04', text:'[PLACEHOLDER — Lesson 43, Q4]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.6' },
-      { id:'6-L43-Q05', text:'[PLACEHOLDER — Lesson 43, Q5]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.6' },
-      { id:'6-L43-Q06', text:'[PLACEHOLDER — Lesson 43, Q6]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.6' },
-      { id:'6-L43-Q07', text:'[PLACEHOLDER — Lesson 43, Q7]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.6' },
-      { id:'6-L43-Q08', text:'[PLACEHOLDER — Lesson 43, Q8]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.6' },
+      {
+        id: '6-L43-Q1',
+        text: 'How did segregation shape daily life for Black Americans in the postwar South?',
+        choices: ['It governed schools, transportation, public spaces, and social behavior, reinforcing the idea that Black citizens held an inferior status.', 'It existed mainly in private clubs and churches, while most public facilities had already been integrated by the late 1940s.', 'It affected voting only, because public accommodations and education had been desegregated long before World War II ended.', 'It was limited mostly to military bases, while civilian neighborhoods and workplaces were becoming racially equal by law.'],
+        correctAnswer: 'It governed schools, transportation, public spaces, and social behavior, reinforcing the idea that Black citizens held an inferior status.',
+        explanation: 'Lesson 43 stresses that segregation affected nearly every aspect of life in the Jim Crow South, from schools and transportation to daily behavior and public accommodations.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q2',
+        text: 'What is the difference between de jure segregation and de facto segregation?',
+        choices: ['De jure segregation is enforced by law, while de facto segregation results from custom, practice, or housing patterns.', 'De jure segregation applies only to schools, while de facto segregation applies only to jobs and factory working conditions.', 'De jure segregation describes northern states, while de facto segregation refers exclusively to the Jim Crow South.', 'De jure segregation is voluntary separation, while de facto segregation is always created by federal court orders.'],
+        correctAnswer: 'De jure segregation is enforced by law, while de facto segregation results from custom, practice, or housing patterns.',
+        explanation: 'The lesson explicitly defines de jure segregation as segregation by law and de facto segregation as segregation created by custom or practice, especially in housing.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q3',
+        text: 'Why were segregated Black schools often described as ‘separate and unequal’?',
+        choices: ['States spent much more on White schools, leaving Black schools with poorer buildings, fewer supplies, and lower-paid teachers.', 'Black schools usually received newer books and better bus systems, but families objected to the strict discipline imposed there.', 'The Supreme Court required Black schools to specialize in manual training rather than academic subjects after Plessy v. Ferguson.', 'Most Black schools were privately funded by churches, while White schools were supported by local businesses and universities.'],
+        correctAnswer: 'States spent much more on White schools, leaving Black schools with poorer buildings, fewer supplies, and lower-paid teachers.',
+        explanation: 'Lesson 43 describes the sharp inequality in segregated schools, including unequal funding, inadequate facilities, fewer books, and lower teacher pay.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q4',
+        text: 'How did housing segregation operate outside the South during the postwar period?',
+        choices: ['Many northern and western cities used restrictive covenants and other informal practices to keep Black families out of certain neighborhoods.', 'Most northern and western cities had already outlawed racial discrimination in housing, making segregation rare by the early 1950s.', 'The federal government required every city to establish racially balanced neighborhoods before it could receive housing funds.', 'Housing segregation outside the South was caused mainly by Black families choosing to remain in the same neighborhoods for cultural reasons.'],
+        correctAnswer: 'Many northern and western cities used restrictive covenants and other informal practices to keep Black families out of certain neighborhoods.',
+        explanation: 'The lesson explains that de facto segregation was common in northern cities, often enforced by restrictive covenants and other unofficial practices.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q5',
+        text: 'Why was Jackie Robinson’s entry into Major League Baseball historically significant?',
+        choices: ['It helped break the color line in professional sports and showed that segregation could be challenged in highly visible public institutions.', 'It led Congress to pass the first national civil rights law since Reconstruction within a year of his first major league season.', 'It forced the Supreme Court to rule that segregated public schools were unconstitutional because sports and education were legally linked.', 'It ended racial discrimination in college athletics immediately, making Robinson the symbol of complete desegregation in American sports.'],
+        correctAnswer: 'It helped break the color line in professional sports and showed that segregation could be challenged in highly visible public institutions.',
+        explanation: 'Lesson 43 identifies Jackie Robinson as the most notable example of sports integration in the late 1940s, helping to erode segregation in public life.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q6',
+        text: 'What was the significance of Executive Order 9981?',
+        choices: ['It ended segregation in the U.S. armed forces and marked one of the earliest major federal steps toward desegregation after World War II.', 'It outlawed segregation in public schools nationwide and served as the basis for the Brown v. Board decision several years later.', 'It required every southern state to abolish Jim Crow laws in transportation, restaurants, theaters, and all other public accommodations.', 'It created the Congress of Racial Equality and gave civil rights groups federal authority to oversee southern elections.'],
+        correctAnswer: 'It ended segregation in the U.S. armed forces and marked one of the earliest major federal steps toward desegregation after World War II.',
+        explanation: 'The lesson states that President Truman issued Executive Order 9981 in 1948 to end segregation in the military.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q7',
+        text: 'How did civil rights organizations strengthen the struggle against segregation after World War II?',
+        choices: ['Groups such as CORE, the Urban League, and the NAACP used nonviolent protest, community support, and legal challenges to attack segregation from different angles.', 'Most organizations abandoned national reform and focused mainly on building separate Black institutions rather than challenging segregation directly.', 'Civil rights groups concentrated almost entirely on labor unions, arguing that economic issues mattered more than school or voting discrimination.', 'They relied mainly on state governors in the Deep South, who were increasingly willing to use public office to dismantle Jim Crow.'],
+        correctAnswer: 'Groups such as CORE, the Urban League, and the NAACP used nonviolent protest, community support, and legal challenges to attack segregation from different angles.',
+        explanation: 'Lesson 43 highlights CORE’s nonviolent action, the Urban League’s support for African Americans in cities, and the NAACP’s growing legal challenge to segregation.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q8',
+        text: 'Why was Brown v. Board of Education such a landmark Supreme Court decision?',
+        choices: ['It declared segregation in public schools unconstitutional and undermined the legal foundation of segregation more broadly.', 'It guaranteed immediate integration in every public school district and imposed criminal penalties on states that resisted the ruling.', 'It overturned all laws separating housing by race, making restrictive covenants and racial zoning illegal across the nation overnight.', 'It restored the ‘separate but equal’ doctrine by requiring states to spend the same amount on Black and White public education.'],
+        correctAnswer: 'It declared segregation in public schools unconstitutional and undermined the legal foundation of segregation more broadly.',
+        explanation: 'Lesson 43 identifies Brown as the legal triumph of the NAACP’s campaign and explains that it struck at the constitutional basis of school segregation.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-L43-Q9',
+        text: 'What was the effect of Brown II and its phrase ‘with all deliberate speed’?',
+        choices: ['It ordered desegregation to begin, but its vague wording gave resistant states room to delay implementation.', 'It reversed Brown entirely and allowed segregated schools to remain legal if local communities supported them democratically.', 'It required immediate desegregation in every district within one year and placed all schools under direct federal control.', 'It limited the Brown ruling to border states, while allowing Deep South states to maintain separate schools until Congress acted.'],
+        correctAnswer: 'It ordered desegregation to begin, but its vague wording gave resistant states room to delay implementation.',
+        explanation: 'The lesson explains that Brown II instructed schools to desegregate ‘with all deliberate speed,’ a phrase that many southern states used to slow the process.',
+        standard: 'SS.912.A.7.6'
+      },
+      {
+        id: '6-L43-Q10',
+        text: 'How did Brown v. Board influence the broader civil rights movement of the 1950s and 1960s?',
+        choices: ['It inspired hope, weakened the legal logic of segregation, and encouraged activists to push more aggressively for equal rights.', 'It convinced most civil rights leaders to rely only on the courts and to avoid direct action protests in the years that followed.', 'It ended organized resistance to desegregation in the South and allowed change to proceed smoothly without major confrontation.', 'It shifted the movement away from school and voting rights and toward a narrow focus on professional sports and military service.'],
+        correctAnswer: 'It inspired hope, weakened the legal logic of segregation, and encouraged activists to push more aggressively for equal rights.',
+        explanation: 'Lesson 43 presents Brown as a catalyst for the modern civil rights movement because it offered legal and moral encouragement for broader activism.',
+        standard: 'SS.912.A.7.6'
+      },
     ]
   },
 
@@ -956,28 +1184,104 @@ const LESSONS = [
     id: 'lesson44',
     label: 'LESSON 44',
     title: 'Like a Mighty Stream',
-    sub: 'United States · 1955–1965',
+    sub: 'The Civil Rights Movement · 1955–1965',
     icon: '✊',
     type: 'lesson',
     briefing: {
-      location: 'United States',
+      location: 'The Civil Rights Movement',
       date: '1955–1965',
-      role: 'Movement organizer',
-      text: '[BRIEFING PLACEHOLDER — Lesson 44]\n\nThis briefing will cover the Montgomery Bus Boycott, sit-ins, Freedom Rides, Birmingham, the March on Washington, the Civil Rights Act of 1964, and the Voting Rights Act of 1965. Final content from JSON.',
-      tags: ['Montgomery Boycott','Sit-Ins','Freedom Rides','March on Washington','Civil Rights Act 1964','SS.912.A.7']
+      role: 'Movement strategist',
+      text: 'The legal blow struck by Brown has not ended segregation. Across the South, activists now turn court victories into direct action. In Montgomery, a boycott challenges bus segregation. Students launch sit-ins, Freedom Riders test federal law, and children march in Birmingham as the nation watches. The movement is growing into a mighty stream—drawing strength from churches, students, local organizers, and ordinary people willing to face jail, violence, and public hatred for the sake of justice.',
+      tags: ['SS.912.A.7.6', 'SS.912.A.7.7', 'SS.912.A.7.8']
     },
     displayCount: 5,
-    goldRules: { perCorrect: 20, completionBonus: 25, perfectBonus: 25 },
-    rewards: { badge: 'Like a Mighty Stream', cards: ['Martin Luther King Jr.', 'John Lewis'] },
+    goldRules: {
+      perCorrect: 20,
+      completionBonus: 25,
+      perfectBonus: 25
+    },
+    rewards: { badge: 'Mighty Stream', cards: ['Martin Luther King Jr.', 'SNCC'] },
     bank: [
-      { id:'6-L44-Q01', text:'[PLACEHOLDER — Lesson 44, Q1]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.6' },
-      { id:'6-L44-Q02', text:'[PLACEHOLDER — Lesson 44, Q2]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.6' },
-      { id:'6-L44-Q03', text:'[PLACEHOLDER — Lesson 44, Q3]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.7' },
-      { id:'6-L44-Q04', text:'[PLACEHOLDER — Lesson 44, Q4]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.7' },
-      { id:'6-L44-Q05', text:'[PLACEHOLDER — Lesson 44, Q5]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.7' },
-      { id:'6-L44-Q06', text:'[PLACEHOLDER — Lesson 44, Q6]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.7' },
-      { id:'6-L44-Q07', text:'[PLACEHOLDER — Lesson 44, Q7]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.8' },
-      { id:'6-L44-Q08', text:'[PLACEHOLDER — Lesson 44, Q8]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.8' },
+      {
+        id: '6-L44-Q1',
+        text: 'Why was the Montgomery Bus Boycott such an important turning point in the civil rights movement?',
+        choices: ['It showed that sustained, nonviolent mass protest could successfully challenge segregation and elevate new movement leadership.', 'It immediately ended all Jim Crow laws across Alabama and convinced most southern governors to support integration.', 'It was the first Supreme Court case to declare segregation unconstitutional in every public school and public facility.', 'It relied mainly on federal troops rather than local organizing, making it a model of top-down civil rights enforcement.'],
+        correctAnswer: 'It showed that sustained, nonviolent mass protest could successfully challenge segregation and elevate new movement leadership.',
+        explanation: 'The lesson describes the Montgomery boycott as a successful 381-day protest that integrated city buses and helped make Martin Luther King Jr. a national leader.',
+        standard: 'SS.912.A.7.6'
+      },
+      {
+        id: '6-L44-Q2',
+        text: 'What was the main purpose of the Southern Christian Leadership Conference, or SCLC?',
+        choices: ['To organize nonviolent protest through Black churches and ministers in order to challenge segregation and injustice.', 'To file lawsuits against segregated school districts while avoiding public protest and direct action campaigns.', 'To monitor federal elections in the South and supervise local voter registration offices in segregated counties.', 'To create separate Black-run institutions that would make integration unnecessary in transportation and education.'],
+        correctAnswer: 'To organize nonviolent protest through Black churches and ministers in order to challenge segregation and injustice.',
+        explanation: 'The lesson says the SCLC was formed after Montgomery and pledged to use nonviolent resistance, with Black churches playing a major role in the movement.',
+        standard: 'SS.912.A.7.6'
+      },
+      {
+        id: '6-L44-Q3',
+        text: 'What did the crisis at Little Rock Central High School reveal about school desegregation after Brown?',
+        choices: ['Many southern officials resisted integration fiercely, forcing the federal government to step in to enforce constitutional rights.', 'School desegregation moved smoothly once the Court ruled, with only minor local disagreement in a few border states.', 'The Supreme Court quickly abandoned Brown after Arkansas argued that local communities should decide racial policy.', 'Most resistance came from northern cities, while southern governors largely accepted integration without major conflict.'],
+        correctAnswer: 'Many southern officials resisted integration fiercely, forcing the federal government to step in to enforce constitutional rights.',
+        explanation: 'The lesson notes that some southern governors aggressively blocked integration, including in Arkansas, showing that Brown required federal enforcement to mean anything in practice.',
+        standard: 'SS.912.A.7.6'
+      },
+      {
+        id: '6-L44-Q4',
+        text: 'What made the sit-ins an effective civil rights tactic in 1960?',
+        choices: ['They used nonviolent direct action to challenge segregation publicly while also putting economic pressure on segregated businesses.', 'They relied on secret negotiations with store owners, allowing the movement to avoid confrontation and media attention entirely.', 'They were designed mainly to persuade the Supreme Court to reopen Brown rather than to challenge local segregation directly.', 'They succeeded because the federal government organized them and guaranteed immediate protection for every participant.'],
+        correctAnswer: 'They used nonviolent direct action to challenge segregation publicly while also putting economic pressure on segregated businesses.',
+        explanation: 'The lesson’s sit-in section shows students deliberately breaking unjust rules while remaining nonviolent, exposing segregation and pressuring lunch counter owners economically.',
+        standard: 'SS.912.A.7.6'
+      },
+      {
+        id: '6-L44-Q5',
+        text: 'How did SNCC differ from older civil rights organizations such as the SCLC?',
+        choices: ['It was student-led, emphasized grassroots activism, and was often more willing to push bolder direct-action tactics.', 'It was founded by federal judges to coordinate civil rights lawsuits and supervise school integration across the South.', 'It avoided nonviolent protest and focused instead on lobbying Congress through elite political and religious leaders.', 'It worked mostly in northern suburbs and had little involvement in southern lunch counters, buses, or voter drives.'],
+        correctAnswer: 'It was student-led, emphasized grassroots activism, and was often more willing to push bolder direct-action tactics.',
+        explanation: 'The lesson highlights students as leaders of the sit-ins, and SNCC is treated as distinctly student-led and more grassroots than the minister-led SCLC.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-L44-Q6',
+        text: 'What was the main purpose of the Freedom Rides in 1961?',
+        choices: ['To test whether southern states were obeying federal rulings against segregation in interstate bus travel and terminals.', 'To transport civil rights volunteers safely between northern colleges and southern voter registration offices during Freedom Summer.', 'To challenge segregated city bus systems in Alabama by refusing to pay fares until the local transit authority integrated them.', 'To escort Black students into newly desegregated universities after federal courts struck down admissions discrimination.'],
+        correctAnswer: 'To test whether southern states were obeying federal rulings against segregation in interstate bus travel and terminals.',
+        explanation: 'The lesson summary states that Freedom Riders rode interstate buses through the South to verify compliance with laws banning segregation in interstate transport.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-L44-Q7',
+        text: 'Why did the Birmingham campaign become a national turning point in 1963?',
+        choices: ['Televised violence against nonviolent protesters shocked the nation and increased pressure for stronger federal civil rights action.', 'It ended segregation throughout Alabama immediately and convinced most southern police chiefs to support the movement.', 'It proved that peaceful protest had failed completely and persuaded movement leaders to abandon nonviolence after 1963.', 'It forced Congress to pass the Voting Rights Act at once, giving African Americans the ballot before the 1964 election.'],
+        correctAnswer: 'Televised violence against nonviolent protesters shocked the nation and increased pressure for stronger federal civil rights action.',
+        explanation: 'The lesson describes police dogs, fire hoses, and King’s arrest in Birmingham. Those images reached national audiences and helped shift public opinion.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-L44-Q8',
+        text: 'What was the main purpose of the March on Washington in 1963?',
+        choices: ['To demand jobs and freedom while building national support for stronger civil rights legislation and economic justice.', 'To celebrate the final victory of school integration after all southern states had complied fully with Brown v. Board.', 'To pressure President Eisenhower to send troops into Mississippi and Alabama before the next school year began.', 'To persuade Congress to create a separate Black political party that could represent the movement independently.'],
+        correctAnswer: 'To demand jobs and freedom while building national support for stronger civil rights legislation and economic justice.',
+        explanation: 'The lesson summary states that about 250,000 people gathered in Washington to demand jobs and freedom, and King’s speech became the highlight of the march.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-L44-Q9',
+        text: 'What did the Civil Rights Act of 1964 do?',
+        choices: ['It banned discrimination in public accommodations, employment, and schools on the basis of race, sex, religion, or national origin.', 'It guaranteed immediate federal payment to families harmed by segregation and created reparations for slavery and Jim Crow.', 'It required every southern state to redraw congressional districts so Black voters would hold a majority in more elections.', 'It gave the Supreme Court direct authority to manage local police departments accused of mistreating peaceful protesters.'],
+        correctAnswer: 'It banned discrimination in public accommodations, employment, and schools on the basis of race, sex, religion, or national origin.',
+        explanation: 'The lesson summary identifies the Civil Rights Act of 1964 as landmark legislation that outlawed segregation in most public places and discrimination at work and in schools.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-L44-Q10',
+        text: 'Why was the Voting Rights Act of 1965 considered a major civil rights victory?',
+        choices: ['It outlawed literacy tests and allowed federal supervision of voter registration where Black citizens had long been denied the vote.', 'It guaranteed equal pay for all workers in the South and ended discrimination in labor unions and apprenticeship programs.', 'It abolished all local police forces in counties with a history of racial violence and placed them under federal command.', 'It made racial segregation in private housing illegal in every state and opened suburbs to all buyers without exception.'],
+        correctAnswer: 'It outlawed literacy tests and allowed federal supervision of voter registration where Black citizens had long been denied the vote.',
+        explanation: 'The lesson summary says the Voting Rights Act of 1965 outlawed literacy tests and required federal supervision of registration in areas where Black voting had been suppressed.',
+        standard: 'SS.912.A.7.8'
+      },
     ]
   },
 
@@ -988,28 +1292,104 @@ const LESSONS = [
     id: 'lesson45',
     label: 'LESSON 45',
     title: 'Redefining Equality',
-    sub: 'United States · 1965–1975',
+    sub: 'Black Power to Affirmative Action · 1965–1978',
     icon: '🔥',
     type: 'lesson',
     briefing: {
-      location: 'United States',
-      date: '1965–1975',
-      role: 'Policy analyst',
-      text: '[BRIEFING PLACEHOLDER — Lesson 45]\n\nThis briefing will cover Black Power, urban uprisings, the Kerner Commission, affirmative action debates, and the widening definition of civil rights for other groups. Final content from JSON.',
-      tags: ['Black Power','Urban Uprisings','Kerner Commission','Affirmative Action','SS.912.A.7']
+      location: 'Black Power to Affirmative Action',
+      date: '1965–1978',
+      role: 'Movement analyst',
+      text: 'By the mid-1960s, the civil rights movement had won landmark laws, but inequality remained deeply rooted. In many northern and western cities, Black Americans still faced segregated housing, weak schools, police brutality, and limited economic opportunity. Some activists began to question whether integration and nonviolence were enough. The movement now enters a new phase—one shaped by Black Power, urban uprisings, school desegregation battles, fair housing fights, and fierce arguments over what true equality should require.',
+      tags: ['SS.912.A.7.9', 'SS.912.A.7.8']
     },
     displayCount: 5,
-    goldRules: { perCorrect: 20, completionBonus: 25, perfectBonus: 25 },
-    rewards: { badge: 'Redefining Equality', cards: ['Malcolm X', 'Lyndon B. Johnson'] },
+    goldRules: {
+      perCorrect: 20,
+      completionBonus: 25,
+      perfectBonus: 25
+    },
+    rewards: { badge: 'Redefining Equality', cards: ['Black Power', 'Affirmative Action'] },
     bank: [
-      { id:'6-L45-Q01', text:'[PLACEHOLDER — Lesson 45, Q1]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.8' },
-      { id:'6-L45-Q02', text:'[PLACEHOLDER — Lesson 45, Q2]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.8' },
-      { id:'6-L45-Q03', text:'[PLACEHOLDER — Lesson 45, Q3]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.8' },
-      { id:'6-L45-Q04', text:'[PLACEHOLDER — Lesson 45, Q4]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-L45-Q05', text:'[PLACEHOLDER — Lesson 45, Q5]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-L45-Q06', text:'[PLACEHOLDER — Lesson 45, Q6]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-L45-Q07', text:'[PLACEHOLDER — Lesson 45, Q7]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-L45-Q08', text:'[PLACEHOLDER — Lesson 45, Q8]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
+      {
+        id: '6-L45-Q1',
+        text: 'What did the slogan ‘Black Power’ generally mean to activists in the late 1960s?',
+        choices: ['It emphasized Black political and economic power, community control, and pride in African heritage rather than dependence on White approval.', 'It called for abandoning voting rights and replacing democracy with revolutionary one-party rule in Black communities nationwide.', 'It argued that civil rights victories had already solved major racial problems, so further protest was no longer necessary.', 'It meant that only armed rebellion, not local organizing or elections, could improve conditions for Black Americans.'],
+        correctAnswer: 'It emphasized Black political and economic power, community control, and pride in African heritage rather than dependence on White approval.',
+        explanation: 'The lesson summary defines Black Power as a call for African Americans to gain economic and political power while taking pride in their heritage.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-L45-Q2',
+        text: 'Why did the Watts riot become a major turning point in public discussion about race in the mid-1960s?',
+        choices: ['It exposed deep frustration over poverty, police treatment, and inequality in northern and western cities despite recent civil rights laws.', 'It ended segregation in Los Angeles housing after federal officials immediately passed a national fair housing law in response.', 'It convinced most civil rights leaders to reject all demands for economic justice and return to a narrow focus on bus segregation.', 'It showed that racial conflict in the United States existed only in southern states and not in large cities outside the South.'],
+        correctAnswer: 'It exposed deep frustration over poverty, police treatment, and inequality in northern and western cities despite recent civil rights laws.',
+        explanation: 'The lesson treats Watts as evidence that formal legal victories had not solved urban inequality, especially in housing, policing, and opportunity.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-L45-Q3',
+        text: 'What conclusion did the Kerner Commission reach after studying the urban riots of the late 1960s?',
+        choices: ['Historic inequalities and slow progress had created deep resentment, making unrest a result of long-standing injustice rather than random violence.', 'Outside communist agitators were the main cause of urban unrest, and economic inequality played almost no meaningful role.', 'Racial violence had been caused mainly by the success of school integration, which had moved change too quickly for local communities.', 'Most unrest could be explained by ordinary crime patterns, so no major national response to inequality was considered necessary.'],
+        correctAnswer: 'Historic inequalities and slow progress had created deep resentment, making unrest a result of long-standing injustice rather than random violence.',
+        explanation: 'The lesson summary says the Kerner Commission found pent-up resentment over historic inequalities to be the fundamental cause of the riots.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-L45-Q4',
+        text: 'How did the Nation of Islam differ from Martin Luther King Jr.’s integrationist vision?',
+        choices: ['It promoted Black nationalism and separation from White society, arguing that Black communities should control their own institutions.', 'It focused on interracial nonviolence and argued that integration alone would quickly solve economic and political inequality.', 'It rejected religion in politics and insisted that civil rights activism should remain strictly secular and court-centered.', 'It supported federal busing as the single best path to equality and made school integration its highest national priority.'],
+        correctAnswer: 'It promoted Black nationalism and separation from White society, arguing that Black communities should control their own institutions.',
+        explanation: 'The lesson describes the Nation of Islam, or Black Muslims, as advocating Black nationalism and separation from White society.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-L45-Q5',
+        text: 'What made the Black Panther Party different from earlier nonviolent civil rights organizations?',
+        choices: ['It demanded economic and political rights while also supporting self-defense and greater local control in Black communities.', 'It concentrated almost entirely on court cases and avoided local community programs because it distrusted direct service work.', 'It rejected all political participation and argued that voting, education, and housing reform were distractions from cultural pride.', 'It focused mainly on integrating suburban schools and had little interest in policing, poverty, or neighborhood conditions.'],
+        correctAnswer: 'It demanded economic and political rights while also supporting self-defense and greater local control in Black communities.',
+        explanation: 'The lesson summary says the Black Panthers sought self-determination and were prepared to use violence, unlike earlier nonviolent leaders.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-L45-Q6',
+        text: 'What was the most important effect of the Civil Rights Act of 1968 in this lesson?',
+        choices: ['It banned discrimination in the sale, rental, and financing of housing based on race, religion, national origin, or sex.', 'It outlawed literacy tests nationwide and placed voter registration in resistant states under direct federal supervision.', 'It ended affirmative action in college admissions and barred universities from considering race in any part of the process.', 'It required all school districts to adopt busing immediately, even where segregation was caused mainly by neighborhood patterns.'],
+        correctAnswer: 'It banned discrimination in the sale, rental, and financing of housing based on race, religion, national origin, or sex.',
+        explanation: 'The lesson identifies the Civil Rights Act of 1968, especially its fair housing clause, as a major effort to address housing discrimination.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-L45-Q7',
+        text: 'Why was Swann v. Charlotte-Mecklenburg Board of Education such an important school desegregation case?',
+        choices: ['The Supreme Court upheld busing as an acceptable tool for integrating schools, even when neighborhood patterns reinforced segregation.', 'The Supreme Court ruled that busing violated equal protection and required all desegregation plans to rely only on neighborhood schools.', 'The Supreme Court declared that Brown v. Board applied only to the South and not to northern or western school districts.', 'The Supreme Court held that racial balance in schools was unconstitutional because it forced families to move out of their communities.'],
+        correctAnswer: 'The Supreme Court upheld busing as an acceptable tool for integrating schools, even when neighborhood patterns reinforced segregation.',
+        explanation: 'The lesson explains that in Swann, the Court approved busing as one way to desegregate schools.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-L45-Q8',
+        text: 'What was the original purpose of affirmative action as described in this lesson?',
+        choices: ['To actively increase opportunities for groups long denied fair access to jobs and education, rather than merely banning discrimination on paper.', 'To guarantee fixed racial quotas in every workplace and university regardless of local conditions or applicant qualifications.', 'To replace civil rights law with voluntary charity programs run by private employers and colleges instead of the federal government.', 'To end all use of race and sex in hiring by requiring employers to consider only test scores and seniority in every decision.'],
+        correctAnswer: 'To actively increase opportunities for groups long denied fair access to jobs and education, rather than merely banning discrimination on paper.',
+        explanation: 'The lesson quotes Lyndon Johnson and traces affirmative action from Kennedy to Johnson and Nixon as a policy designed to turn equality from theory into fact.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-L45-Q9',
+        text: 'What constitutional principle came out of Regents of the University of California v. Bakke?',
+        choices: ['Race could be considered as one factor in admissions, but rigid racial quotas were unconstitutional.', 'Any use of race in admissions violated the Fourteenth Amendment, so universities had to become completely colorblind.', 'Universities were required to use fixed numerical quotas if they wanted to create a more diverse student body.', 'The Supreme Court ruled that states alone, not universities, could decide whether race-conscious admissions were legal.'],
+        correctAnswer: 'Race could be considered as one factor in admissions, but rigid racial quotas were unconstitutional.',
+        explanation: 'The lesson says Bakke narrowly upheld affirmative action while rejecting rigid racial quotas and race as the sole criterion.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-L45-Q10',
+        text: 'How does Lesson 45 redefine the idea of equality compared with the earlier civil rights movement?',
+        choices: ['It shifts from ending legal segregation alone to addressing power, housing, schools, economic opportunity, and the long effects of past discrimination.', 'It abandons the goal of equality altogether and argues that legal rights should no longer matter once public protest begins to fade.', 'It suggests that equality had already been achieved by 1965, so later debates about cities, schools, and jobs were mostly unnecessary.', 'It narrows the movement’s focus to symbolic representation in media and no longer treats housing, education, or politics as central concerns.'],
+        correctAnswer: 'It shifts from ending legal segregation alone to addressing power, housing, schools, economic opportunity, and the long effects of past discrimination.',
+        explanation: 'That is the core meaning of the lesson title itself: equality after 1965 is debated not just as formal rights, but as real access, power, and opportunity.',
+        standard: 'SS.912.A.7.9'
+      },
     ]
   },
 
@@ -1020,28 +1400,88 @@ const LESSONS = [
     id: 'capstone',
     label: 'UNIT 6 CAPSTONE',
     title: 'The Widening Struggle',
-    sub: 'United States · 1960s–1970s',
+    sub: 'Expanding Rights Movements · 1960s–1990s',
     icon: '🌊',
     type: 'capstone',
     briefing: {
-      location: 'United States',
-      date: '1960s–1970s',
-      role: 'Civil rights historian',
-      text: '[BRIEFING PLACEHOLDER — Capstone]\n\nThis capstone will trace how the civil rights movement expanded beyond Black Americans to inspire the women\'s movement, Chicano movement, Native American rights, disability rights, and LGBTQ activism. Final content from JSON.',
-      tags: ["Women's Rights","Chicano Movement","AIM","Disability Rights","SS.912.A.7"]
+      location: 'Expanding Rights Movements',
+      date: '1960s–1990s',
+      role: 'Rights movement historian',
+      text: 'The Black freedom struggle changed the nation, but it did not stop with one movement. In the decades that followed, other Americans adapted its language, tactics, and moral force to demand equal access, dignity, and opportunity. Indigenous activists occupied Alcatraz and formed AIM. Chicano organizers fought for farmworkers, schools, and cultural pride. Women challenged legal and social inequality. Disability-rights activists demanded access and independence. LGBT Americans pushed back after Stonewall. Your task is to trace how the struggle for civil rights widened and why equality remained unfinished.',
+      tags: ['SS.912.A.7.9']
     },
     displayCount: 5,
-    goldRules: { perCorrect: 25, completionBonus: 50, masteryBonus: 50 },
-    rewards: { badge: 'The Widening Struggle', cards: ['César Chávez', 'Betty Friedan'] },
+    goldRules: {
+      perCorrect: 25,
+      completionBonus: 50,
+      perfectBonus: 50
+    },
+    rewards: { badge: 'Widening Struggle', cards: ['AIM', 'NOW'] },
     bank: [
-      { id:'6-CAP-Q01', text:'[PLACEHOLDER — Capstone Q1]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-CAP-Q02', text:'[PLACEHOLDER — Capstone Q2]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-CAP-Q03', text:'[PLACEHOLDER — Capstone Q3]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-CAP-Q04', text:'[PLACEHOLDER — Capstone Q4]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-CAP-Q05', text:'[PLACEHOLDER — Capstone Q5]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice A]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-CAP-Q06', text:'[PLACEHOLDER — Capstone Q6]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice B]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-CAP-Q07', text:'[PLACEHOLDER — Capstone Q7]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice C]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
-      { id:'6-CAP-Q08', text:'[PLACEHOLDER — Capstone Q8]', choices:['[Choice A]','[Choice B]','[Choice C]','[Choice D]'], correctAnswer:'[Choice D]', explanation:'[Explanation]', standard:'SS.912.A.7.9' },
+      {
+        id: '6-CAP-Q1',
+        text: 'Why is the capstone lesson best understood as the conclusion to the civil rights unit?',
+        choices: ['It shows how the African American civil rights movement inspired other groups to adapt similar strategies in their own struggles for equality.', 'It argues that the earlier civil rights movement had largely ended by 1960 and had very little influence on later social movements.', 'It focuses only on foreign revolutions, showing that most demands for rights after 1965 developed outside the United States.', 'It proves that later rights movements avoided protest entirely and relied only on quiet court cases and private lobbying.'],
+        correctAnswer: 'It shows how the African American civil rights movement inspired other groups to adapt similar strategies in their own struggles for equality.',
+        explanation: 'The lesson explicitly states that disability-rights activists and other groups were inspired by the African American civil rights movement and forged their own struggles for equal rights.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-CAP-Q2',
+        text: 'What did the occupation of Alcatraz symbolize for Indigenous activists in the late 1960s?',
+        choices: ['It asserted Indigenous rights, demanded cultural and educational resources, and became a dramatic symbol of Red Power activism.', 'It created a permanent independent Indigenous nation that the federal government officially recognized by treaty within two years.', 'It was mainly a protest against school busing in San Francisco and had little connection to broader Indigenous rights demands.', 'It was organized by federal officials to bring attention to reservation poverty through a short-term educational exhibit.'],
+        correctAnswer: 'It asserted Indigenous rights, demanded cultural and educational resources, and became a dramatic symbol of Red Power activism.',
+        explanation: 'The lesson explains that the Indians of All Tribes occupied Alcatraz, demanded land and support for cultural and educational centers, and treated the action as a major success for Red Power.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-CAP-Q3',
+        text: 'Why was the American Indian Movement, or AIM, created in Minneapolis in 1968?',
+        choices: ['It formed in response to police harassment and injustice, with activists working to protect Indigenous people from unfounded arrests.', 'It was created mainly to support school desegregation lawsuits and challenge university admissions discrimination in the Midwest.', 'It began as a religious organization focused on restoring missionary schools on reservations and preserving Christian education.', 'It was founded by Congress to administer the Indian Civil Rights Act and supervise tribal governments directly.'],
+        correctAnswer: 'It formed in response to police harassment and injustice, with activists working to protect Indigenous people from unfounded arrests.',
+        explanation: 'The lesson states that AIM was formed in Minneapolis after activists saw disproportionate policing and incarceration of Indigenous Americans, and it monitored police activity to intervene.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-CAP-Q4',
+        text: 'What was a major goal of Chicano activism during the civil rights era?',
+        choices: ['To win fair treatment in schools, work, and politics while also building pride in Chicano culture and identity.', 'To separate Mexican Americans entirely from U.S. politics and create an independent nation in the Southwest.', 'To end bilingual education because activists believed learning only English was the fastest path to equal rights.', 'To shift civil rights activism away from labor and education and focus almost entirely on military service opportunities.'],
+        correctAnswer: 'To win fair treatment in schools, work, and politics while also building pride in Chicano culture and identity.',
+        explanation: 'The lesson describes Chicano activism as both a fight for equal opportunity and a movement rooted in cultural pride, bilingual education, and political organizing.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-CAP-Q5',
+        text: 'How did Latino activism broaden beyond farm labor during this period?',
+        choices: ['Groups such as the Brown Berets and student protesters pushed for better schools, housing, jobs, and respect for Chicano identity.', 'Latino activism stayed limited to farm wages and did not expand into education, neighborhood conditions, or cultural issues.', 'Most Latino activists rejected protest and instead relied on southern governors to pass civil rights legislation voluntarily.', 'Latino movements focused mainly on opposing immigration and had little connection to discrimination in education or employment.'],
+        correctAnswer: 'Groups such as the Brown Berets and student protesters pushed for better schools, housing, jobs, and respect for Chicano identity.',
+        explanation: 'The lesson notes class boycotts, bilingual education demands, and the Brown Berets’ work on housing, employment, and Chicano pride.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-CAP-Q6',
+        text: 'What was the significance of the women’s liberation movement and NOW in the wider struggle for civil rights?',
+        choices: ['They challenged legal and social inequality for women, arguing that equal rights required change in work, education, and public life.', 'They focused mainly on preserving traditional gender roles and resisting changes in employment and educational opportunity.', 'They argued that race was the only legitimate civil rights issue and that women’s equality should wait until later decades.', 'They worked almost entirely through military service campaigns and did not engage issues such as employment or legal discrimination.'],
+        correctAnswer: 'They challenged legal and social inequality for women, arguing that equal rights required change in work, education, and public life.',
+        explanation: 'NOW and women’s liberation were major parts of the widening struggle, reflecting a broader push against discrimination and unequal opportunity.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-CAP-Q7',
+        text: 'What was one major achievement of the disability-rights movement described in this lesson?',
+        choices: ['The Americans with Disabilities Act established major reforms and expanded equal access for Americans with disabilities.', 'The Supreme Court ruled that disability discrimination did not fall under civil rights law, forcing activists to rely only on charity groups.', 'Congress abolished public education requirements for students with disabilities and shifted most services to private institutions.', 'Activists won the right to separate schools and transportation systems so disabled Americans would not face competition from others.'],
+        correctAnswer: 'The Americans with Disabilities Act established major reforms and expanded equal access for Americans with disabilities.',
+        explanation: 'The lesson summary states that disability-rights activists demanded access and opportunity, and that the ADA of 1990 instituted major disability reforms.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-CAP-Q8',
+        text: 'Why are the Stonewall riots important in the history of the widening struggle for civil rights?',
+        choices: ['They became a catalyst for modern LGBT activism by turning resistance to discrimination into a more visible rights movement.', 'They ended legal discrimination against LGBT Americans immediately and led Congress to pass a national equality act within months.', 'They were organized mainly by disability-rights activists and focused on physical accessibility rather than sexuality or identity.', 'They marked the first time federal courts recognized bilingual education as a constitutional right for minority students.'],
+        correctAnswer: 'They became a catalyst for modern LGBT activism by turning resistance to discrimination into a more visible rights movement.',
+        explanation: 'Stonewall is part of the broader expansion of civil rights activism to LGBT Americans in the post-1960s period.',
+        standard: 'SS.912.A.7.9'
+      },
     ]
   },
 
@@ -1052,47 +1492,226 @@ const LESSONS = [
     id: 'eoc',
     label: 'EOC REVIEW',
     title: 'EOC Practice Quiz',
-    sub: 'Unit 6 · Full Review',
+    sub: 'Civil Rights Era Review',
     icon: '📋',
     type: 'eoc',
     briefing: {
-      location: 'Unit 6 Review',
-      date: '1945–1975',
+      location: 'Civil Rights Era Review',
+      date: 'Civil Rights Era Review',
       role: 'Historian in training',
-      text: '[BRIEFING PLACEHOLDER — EOC Review]\n\nThis is the end-of-unit practice quiz drawing from all lessons in Unit 6. You will see 15 questions drawn randomly from a bank of 25. Final content from JSON.',
-      tags: ['All Standards','EOC Format','Unit 6 Review','SS.912.A.7']
+      text: 'You have completed the major missions of the Civil Rights Era. Now review the full story: postwar prosperity, hidden poverty, segregation, the Black freedom struggle, changing definitions of equality, and the widening rights movements that followed. Expect questions from across the unit, not just one lesson.',
+      tags: ['SS.912.A.7.5', 'SS.912.A.7.2', 'SS.912.A.7.7', 'SS.912.A.7.9', 'SS.912.A.7.3']
     },
     displayCount: 15,
-    goldRules: { perCorrect: 15, completionBonus: 50, highScoreBonus: 50 },
-    rewards: { badge: 'Civil Rights Complete', cards: ['Civil Rights Act 1964', 'Voting Rights Act 1965', 'Great Society'] },
+    goldRules: {
+      perCorrect: 15,
+      completionBonus: 50,
+      perfectBonus: 50
+    },
+    rewards: { badge: 'Civil Rights Complete', cards: ['Brown v. Board', 'Civil Rights Act', 'ADA'] },
     bank: [
-      { id:'6-EOC-Q01', text:'[EOC PLACEHOLDER Q1]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[A]', explanation:'[F]', standard:'SS.912.A.7.1' },
-      { id:'6-EOC-Q02', text:'[EOC PLACEHOLDER Q2]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[B]', explanation:'[F]', standard:'SS.912.A.7.2' },
-      { id:'6-EOC-Q03', text:'[EOC PLACEHOLDER Q3]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[C]', explanation:'[F]', standard:'SS.912.A.7.3' },
-      { id:'6-EOC-Q04', text:'[EOC PLACEHOLDER Q4]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[D]', explanation:'[F]', standard:'SS.912.A.7.4' },
-      { id:'6-EOC-Q05', text:'[EOC PLACEHOLDER Q5]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[A]', explanation:'[F]', standard:'SS.912.A.7.5' },
-      { id:'6-EOC-Q06', text:'[EOC PLACEHOLDER Q6]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[B]', explanation:'[F]', standard:'SS.912.A.7.5' },
-      { id:'6-EOC-Q07', text:'[EOC PLACEHOLDER Q7]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[C]', explanation:'[F]', standard:'SS.912.A.7.6' },
-      { id:'6-EOC-Q08', text:'[EOC PLACEHOLDER Q8]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[D]', explanation:'[F]', standard:'SS.912.A.7.6' },
-      { id:'6-EOC-Q09', text:'[EOC PLACEHOLDER Q9]',  choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[A]', explanation:'[F]', standard:'SS.912.A.7.7' },
-      { id:'6-EOC-Q10', text:'[EOC PLACEHOLDER Q10]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[B]', explanation:'[F]', standard:'SS.912.A.7.7' },
-      { id:'6-EOC-Q11', text:'[EOC PLACEHOLDER Q11]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[C]', explanation:'[F]', standard:'SS.912.A.7.7' },
-      { id:'6-EOC-Q12', text:'[EOC PLACEHOLDER Q12]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[D]', explanation:'[F]', standard:'SS.912.A.7.8' },
-      { id:'6-EOC-Q13', text:'[EOC PLACEHOLDER Q13]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[A]', explanation:'[F]', standard:'SS.912.A.7.8' },
-      { id:'6-EOC-Q14', text:'[EOC PLACEHOLDER Q14]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[B]', explanation:'[F]', standard:'SS.912.A.7.8' },
-      { id:'6-EOC-Q15', text:'[EOC PLACEHOLDER Q15]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[C]', explanation:'[F]', standard:'SS.912.A.7.9' },
-      { id:'6-EOC-Q16', text:'[EOC PLACEHOLDER Q16]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[D]', explanation:'[F]', standard:'SS.912.A.7.9' },
-      { id:'6-EOC-Q17', text:'[EOC PLACEHOLDER Q17]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[A]', explanation:'[F]', standard:'SS.912.A.7.9' },
-      { id:'6-EOC-Q18', text:'[EOC PLACEHOLDER Q18]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[B]', explanation:'[F]', standard:'SS.912.A.7.5' },
-      { id:'6-EOC-Q19', text:'[EOC PLACEHOLDER Q19]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[C]', explanation:'[F]', standard:'SS.912.A.7.6' },
-      { id:'6-EOC-Q20', text:'[EOC PLACEHOLDER Q20]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[D]', explanation:'[F]', standard:'SS.912.A.7.7' },
-      { id:'6-EOC-Q21', text:'[EOC PLACEHOLDER Q21]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[A]', explanation:'[F]', standard:'SS.912.A.7.8' },
-      { id:'6-EOC-Q22', text:'[EOC PLACEHOLDER Q22]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[B]', explanation:'[F]', standard:'SS.912.A.7.9' },
-      { id:'6-EOC-Q23', text:'[EOC PLACEHOLDER Q23]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[C]', explanation:'[F]', standard:'SS.912.A.7.5' },
-      { id:'6-EOC-Q24', text:'[EOC PLACEHOLDER Q24]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[D]', explanation:'[F]', standard:'SS.912.A.7.6' },
-      { id:'6-EOC-Q25', text:'[EOC PLACEHOLDER Q25]', choices:['[A]','[B]','[C]','[D]'], correctAnswer:'[A]', explanation:'[F]', standard:'SS.912.A.7.7' },
+      {
+        id: '6-EOC-Q1',
+        text: 'Why are the 1950s often remembered as a time of prosperity in the United States?',
+        choices: ['Many families saw rising incomes, growing access to homes and consumer goods, and entry into the expanding middle class.', 'Most Americans returned to Depression-era living standards because wartime production shut down and unemployment remained permanently high.', 'The federal government distributed equal wealth to all families, eliminating major differences in income and living conditions.', 'Prosperity was concentrated almost entirely in rural farming areas, while suburbs and cities declined throughout the decade.'],
+        correctAnswer: 'Many families saw rising incomes, growing access to homes and consumer goods, and entry into the expanding middle class.',
+        explanation: 'The postwar boom brought rising incomes, suburban housing, and a broad expansion of consumer culture for many Americans.',
+        standard: 'SS.912.A.7.1'
+      },
+      {
+        id: '6-EOC-Q2',
+        text: 'Why did suburban developments like Levittown become symbols of the postwar era?',
+        choices: ['They offered relatively affordable homes to young families seeking stability, privacy, and a suburban version of the American dream.', 'They were created mainly as temporary housing for migrant workers and were not intended for permanent middle-class families.', 'They became popular because federal law banned mortgage lending inside cities, leaving suburbs as the only housing option.', 'They were designed primarily for retired military officers and had little connection to the baby boom or family life.'],
+        correctAnswer: 'They offered relatively affordable homes to young families seeking stability, privacy, and a suburban version of the American dream.',
+        explanation: 'Levittown became a model of postwar suburbia, especially for young white middle-class families.',
+        standard: 'SS.912.A.7.2'
+      },
+      {
+        id: '6-EOC-Q3',
+        text: 'What helped drive the rapid growth of the Sunbelt after World War II?',
+        choices: ['Jobs, tourism, air conditioning, and development projects helped attract people and businesses to the South and West.', 'Federal law required all new housing and industry to move from the Northeast into desert regions by the early 1950s.', 'The Sunbelt grew mainly because northern and midwestern cities were legally closed to internal migration after the war.', 'Its population rose mostly because most military veterans were assigned to permanent settlement there by the federal government.'],
+        correctAnswer: 'Jobs, tourism, air conditioning, and development projects helped attract people and businesses to the South and West.',
+        explanation: 'The Sunbelt expanded because of migration, economic opportunity, tourism, and technology like air conditioning.',
+        standard: 'SS.912.A.7.2'
+      },
+      {
+        id: '6-EOC-Q4',
+        text: 'What did Michael Harrington mean by ‘the other America’?',
+        choices: ['A hidden world of poverty that existed alongside postwar prosperity and was often overlooked by affluent Americans.', 'A communist political movement that tried to organize poor Americans against suburban middle-class culture.', 'A separate rural economy that had become wealthier than cities but remained underrepresented in national politics.', 'A region of the South where prosperity arrived earlier than in northern suburbs and industrial cities.'],
+        correctAnswer: 'A hidden world of poverty that existed alongside postwar prosperity and was often overlooked by affluent Americans.',
+        explanation: 'Harrington argued that poverty had not disappeared; it had become easier for comfortable Americans not to see.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-EOC-Q5',
+        text: 'Who were the working poor during the postwar era?',
+        choices: ['People who held jobs but earned too little to escape poverty or consistently meet basic needs.', 'People who refused employment and relied entirely on long-term public charity without seeking wages.', 'People who owned small suburban homes but temporarily fell behind on car payments and mortgage bills.', 'People who worked only seasonally by personal choice because factory jobs were considered socially undesirable.'],
+        correctAnswer: 'People who held jobs but earned too little to escape poverty or consistently meet basic needs.',
+        explanation: 'The lesson emphasizes that employment alone did not guarantee security or a decent standard of living.',
+        standard: 'SS.912.A.7.3'
+      },
+      {
+        id: '6-EOC-Q6',
+        text: 'What is the difference between de jure segregation and de facto segregation?',
+        choices: ['De jure segregation is established by law, while de facto segregation is maintained by custom, practice, or housing patterns.', 'De jure segregation refers only to schools, while de facto segregation applies only to jobs and transportation.', 'De jure segregation existed only in the North, while de facto segregation described the Jim Crow South.', 'De jure segregation is voluntary separation, while de facto segregation is always ordered by federal courts.'],
+        correctAnswer: 'De jure segregation is established by law, while de facto segregation is maintained by custom, practice, or housing patterns.',
+        explanation: 'The unit distinguishes legal segregation from the unofficial but still powerful segregation produced by custom and neighborhood structure.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-EOC-Q7',
+        text: 'Why was Jackie Robinson’s entry into Major League Baseball historically important?',
+        choices: ['It helped break the color line in professional sports and challenged segregation in a highly visible national institution.', 'It directly led Congress to pass the Civil Rights Act of 1957 within months of his first major league season.', 'It forced the Supreme Court to rule against school segregation because sports integration changed constitutional law.', 'It ended racial discrimination in American athletics immediately at both the professional and college levels.'],
+        correctAnswer: 'It helped break the color line in professional sports and challenged segregation in a highly visible national institution.',
+        explanation: 'Robinson’s success showed that segregation could be challenged in nationally prominent public life.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-EOC-Q8',
+        text: 'Why was Brown v. Board of Education a landmark Supreme Court decision?',
+        choices: ['It declared segregation in public schools unconstitutional and weakened the broader legal foundation of segregation.', 'It required immediate integration of every public institution in the United States, including housing and private workplaces.', 'It restored the ‘separate but equal’ doctrine while requiring states to spend equal amounts on Black and White schools.', 'It guaranteed that all southern governors would lose control of education policy if they opposed school desegregation.'],
+        correctAnswer: 'It declared segregation in public schools unconstitutional and weakened the broader legal foundation of segregation.',
+        explanation: 'Brown attacked the core constitutional logic of school segregation and inspired further activism.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-EOC-Q9',
+        text: 'What was one major consequence of Brown II’s instruction to desegregate schools ‘with all deliberate speed’?',
+        choices: ['Its vague wording allowed many resistant districts and states to delay meaningful implementation of desegregation.', 'It imposed a strict one-year deadline that forced every southern school district to integrate immediately.', 'It reversed Brown entirely and restored local authority to keep segregated schools if communities preferred them.', 'It limited desegregation to elementary schools while leaving high schools and universities outside the Court’s ruling.'],
+        correctAnswer: 'Its vague wording allowed many resistant districts and states to delay meaningful implementation of desegregation.',
+        explanation: 'The phrase gave segregationists room to stall and resist instead of complying quickly.',
+        standard: 'SS.912.A.7.5'
+      },
+      {
+        id: '6-EOC-Q10',
+        text: 'Why was the Montgomery Bus Boycott a major turning point in the civil rights movement?',
+        choices: ['It proved that organized, nonviolent mass protest could defeat segregation and elevate new leaders like Martin Luther King Jr.', 'It ended all bus segregation across the South immediately and convinced most governors to support federal civil rights laws.', 'It was the first major victory won mainly through armed self-defense rather than churches and nonviolent organizing.', 'It succeeded because the federal government directed the protest from the beginning and supplied financial compensation to riders.'],
+        correctAnswer: 'It proved that organized, nonviolent mass protest could defeat segregation and elevate new leaders like Martin Luther King Jr.',
+        explanation: 'Montgomery demonstrated the power of collective, disciplined nonviolence and helped launch King as a national figure.',
+        standard: 'SS.912.A.7.6'
+      },
+      {
+        id: '6-EOC-Q11',
+        text: 'Why were sit-ins effective as a civil rights tactic in 1960?',
+        choices: ['They challenged segregation directly, drew public attention, and placed economic pressure on segregated businesses.', 'They worked mainly by persuading the Supreme Court to reopen Brown through private legal petitions and testimony.', 'They succeeded because federal troops immediately protected every participant from arrest, violence, or intimidation.', 'They focused only on symbolic protest and avoided confronting businesses or local segregation policies directly.'],
+        correctAnswer: 'They challenged segregation directly, drew public attention, and placed economic pressure on segregated businesses.',
+        explanation: 'Sit-ins combined direct action with moral theater and economic leverage.',
+        standard: 'SS.912.A.7.6'
+      },
+      {
+        id: '6-EOC-Q12',
+        text: 'What was the purpose of the Freedom Rides in 1961?',
+        choices: ['To test whether southern states were obeying federal rulings against segregation in interstate travel and terminals.', 'To escort Black students safely into newly integrated schools after governors shut down local school districts in protest.', 'To transport volunteers into Mississippi during Freedom Summer voter registration drives later in the decade.', 'To persuade Congress to create a national transportation system that would be free from local police control.'],
+        correctAnswer: 'To test whether southern states were obeying federal rulings against segregation in interstate travel and terminals.',
+        explanation: 'The Freedom Rides exposed the gap between federal rulings and actual practice in the South.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-EOC-Q13',
+        text: 'Why did the Birmingham campaign become so important in 1963?',
+        choices: ['Televised attacks on nonviolent demonstrators shocked the nation and increased pressure for stronger federal action.', 'It immediately ended all legal segregation in Alabama and removed George Wallace from office through federal intervention.', 'It proved that public protest had failed and convinced most movement leaders to reject nonviolence from that point on.', 'It directly produced the Voting Rights Act of 1965 without any further major campaigns or public demonstrations.'],
+        correctAnswer: 'Televised attacks on nonviolent demonstrators shocked the nation and increased pressure for stronger federal action.',
+        explanation: 'Birmingham turned local brutality into national political pressure.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-EOC-Q14',
+        text: 'What was the main purpose of the March on Washington in 1963?',
+        choices: ['To demand jobs and freedom while building national support for civil rights legislation and economic justice.', 'To celebrate the final success of school integration after all southern states had complied with Brown.', 'To pressure President Eisenhower to send troops into Mississippi and Alabama before the next school year began.', 'To create a separate Black political party that could replace the Democratic and Republican parties in national elections.'],
+        correctAnswer: 'To demand jobs and freedom while building national support for civil rights legislation and economic justice.',
+        explanation: 'The march connected civil rights to economic justice as well as formal equality.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-EOC-Q15',
+        text: 'What did the Civil Rights Act of 1964 do?',
+        choices: ['It banned discrimination in public accommodations, employment, and schools on the basis of race, sex, religion, or national origin.', 'It outlawed literacy tests and placed voter registration in resistant southern counties under direct federal supervision.', 'It guaranteed compensation payments to all families harmed by segregation and voting discrimination since Reconstruction.', 'It ordered every suburb in the United States to adopt a federally supervised plan for racially balanced housing.'],
+        correctAnswer: 'It banned discrimination in public accommodations, employment, and schools on the basis of race, sex, religion, or national origin.',
+        explanation: 'The 1964 law was one of the broadest and most important civil rights measures in U.S. history.',
+        standard: 'SS.912.A.7.7'
+      },
+      {
+        id: '6-EOC-Q16',
+        text: 'Why was the Voting Rights Act of 1965 such a major civil rights victory?',
+        choices: ['It outlawed literacy tests and allowed federal supervision where Black citizens had long been denied the right to vote.', 'It required every southern state to elect a Black governor before receiving federal highway and education funds.', 'It ended discrimination in private housing and made racially restrictive covenants illegal in every suburb nationwide.', 'It abolished the Senate filibuster, ensuring that all future civil rights bills would pass Congress more easily.'],
+        correctAnswer: 'It outlawed literacy tests and allowed federal supervision where Black citizens had long been denied the right to vote.',
+        explanation: 'The Voting Rights Act directly targeted the tools southern officials had used to suppress Black political participation.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-EOC-Q17',
+        text: 'What did ‘Black Power’ mean for many activists after 1965?',
+        choices: ['A demand for Black political and economic power, community control, and pride in African heritage.', 'A rejection of voting rights and all electoral politics in favor of permanent revolutionary violence nationwide.', 'A belief that civil rights laws had solved most racial problems, making further protest largely unnecessary.', 'A plan to separate Black Americans permanently from all public institutions rather than reform them.'],
+        correctAnswer: 'A demand for Black political and economic power, community control, and pride in African heritage.',
+        explanation: 'Black Power reflected frustration with slow progress and a broader definition of liberation than integration alone.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-EOC-Q18',
+        text: 'What did the Watts riot and the Kerner Commission reveal about race in the late 1960s?',
+        choices: ['Legal victories had not eliminated urban inequality, and long-standing injustice continued to produce anger and unrest.', 'Most racial conflict had ended in the South, leaving only minor and isolated disagreements in northern cities.', 'Urban unrest was caused mainly by communist agitation, not by housing, policing, or economic discrimination.', 'The nation had already solved most racial problems, and riots were treated primarily as random criminal outbreaks.'],
+        correctAnswer: 'Legal victories had not eliminated urban inequality, and long-standing injustice continued to produce anger and unrest.',
+        explanation: 'The post-1965 phase of the movement highlighted persistent inequality beyond Jim Crow law.',
+        standard: 'SS.912.A.7.8'
+      },
+      {
+        id: '6-EOC-Q19',
+        text: 'What was a major effect of the Civil Rights Act of 1968 in this unit?',
+        choices: ['It banned discrimination in the sale, rental, and financing of housing, addressing one of the most stubborn forms of inequality.', 'It outlawed all use of race in public policy and ended affirmative action in college admissions and employment.', 'It required immediate busing in every school district where housing patterns produced any racial imbalance at all.', 'It created a new federal court system devoted only to hearing discrimination claims involving schools and transportation.'],
+        correctAnswer: 'It banned discrimination in the sale, rental, and financing of housing, addressing one of the most stubborn forms of inequality.',
+        explanation: 'The 1968 law focused heavily on fair housing, an area where discrimination had remained deeply entrenched.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-EOC-Q20',
+        text: 'What was the original purpose of affirmative action?',
+        choices: ['To increase opportunity for groups long denied fair access to jobs and education, not just outlaw discrimination in theory.', 'To require fixed racial quotas in all colleges and workplaces regardless of local conditions or applicant qualifications.', 'To eliminate all consideration of race and sex in hiring by requiring employers to use test scores only.', 'To replace civil rights law with private charity programs controlled by businesses and universities rather than government.'],
+        correctAnswer: 'To increase opportunity for groups long denied fair access to jobs and education, not just outlaw discrimination in theory.',
+        explanation: 'Affirmative action aimed to move beyond formal equality and address the effects of past exclusion.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-EOC-Q21',
+        text: 'What principle came from Regents of the University of California v. Bakke?',
+        choices: ['Race could be considered as one factor in admissions, but rigid racial quotas were unconstitutional.', 'Any use of race in admissions violated the Constitution, so universities had to become fully colorblind immediately.', 'Universities were required to use fixed numerical quotas if they wanted to create a more diverse student body.', 'Only state legislatures, not universities or courts, could decide whether race-conscious admissions were legal.'],
+        correctAnswer: 'Race could be considered as one factor in admissions, but rigid racial quotas were unconstitutional.',
+        explanation: 'Bakke allowed limited affirmative action while rejecting strict quota systems.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-EOC-Q22',
+        text: 'What did Red Power activism and groups like AIM seek to achieve?',
+        choices: ['They demanded Indigenous rights, community control, treaty justice, and greater respect for Native identity and sovereignty.', 'They focused mainly on supporting school busing in large cities and did not center land, treaty, or policing issues.', 'They argued that Native communities should reject all federal law and abandon tribal governance for full assimilation.', 'They aimed mainly to oppose immigration reform and had little connection to earlier civil rights activism in the United States.'],
+        correctAnswer: 'They demanded Indigenous rights, community control, treaty justice, and greater respect for Native identity and sovereignty.',
+        explanation: 'Red Power activism broadened civil rights language into Indigenous struggles over sovereignty, dignity, and justice.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-EOC-Q23',
+        text: 'What was one major goal of Chicano activism during this period?',
+        choices: ['To secure fair treatment in schools, work, and politics while promoting pride in Chicano culture and identity.', 'To end bilingual education because activists believed equal rights required total cultural assimilation into English-only schools.', 'To separate Mexican Americans entirely from U.S. politics and build an independent nation in the Southwest.', 'To focus only on farm wages and avoid questions of housing, student rights, or representation in local government.'],
+        correctAnswer: 'To secure fair treatment in schools, work, and politics while promoting pride in Chicano culture and identity.',
+        explanation: 'The Chicano movement linked civil rights demands to labor, education, culture, and political representation.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-EOC-Q24',
+        text: 'Why is the Americans with Disabilities Act important in the wider civil rights story?',
+        choices: ['It expanded the struggle for equal access by creating major disability-rights protections in public life and institutions.', 'It ended all civil rights litigation by replacing equal protection arguments with a new system of private arbitration.', 'It required separate schools and transit systems for disabled Americans so they could receive more specialized treatment.', 'It applied only to federal buildings and had little effect on jobs, transportation, schools, or public accommodations.'],
+        correctAnswer: 'It expanded the struggle for equal access by creating major disability-rights protections in public life and institutions.',
+        explanation: 'The ADA shows how civil rights logic widened into accessibility and disability rights.',
+        standard: 'SS.912.A.7.9'
+      },
+      {
+        id: '6-EOC-Q25',
+        text: 'Which statement best captures the overall story of this unit?',
+        choices: ['Postwar prosperity and progress were real, but inequality endured, and the struggle for equality widened across multiple groups over time.', 'The postwar era solved most social problems quickly, and later rights movements arose mainly from misunderstanding rather than injustice.', 'The civil rights movement was limited mostly to school integration in the South and had little influence on later activism.', 'The era’s main conflict was between suburbia and cities, while race, poverty, and rights movements played only minor roles.'],
+        correctAnswer: 'Postwar prosperity and progress were real, but inequality endured, and the struggle for equality widened across multiple groups over time.',
+        explanation: 'That arc ties together prosperity, poverty, segregation, the Black freedom movement, changing ideas of equality, and later rights struggles.',
+        standard: 'SS.912.A.7.9'
+      },
     ]
-  }
+  },
 
 ];
 
