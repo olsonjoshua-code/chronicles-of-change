@@ -330,6 +330,14 @@ body.hud-active #root{padding-top:68px;}
 .wb-sub{font-family:var(--dm);font-size:10px;color:var(--gold2);margin-bottom:4px;}
 .wb-progress{font-family:var(--dm);font-size:9px;color:var(--text3);margin-bottom:20px;}
 
+
+/* ── Standard tag on question block ── */
+.q-standard-tag{font-family:var(--dm);font-size:9px;letter-spacing:2px;
+  color:var(--gold);border:1px solid var(--gold2);
+  background:rgba(0,0,0,.25);
+  display:inline-block;padding:3px 9px;margin-bottom:8px;
+  text-transform:uppercase;}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
@@ -553,6 +561,7 @@ body.hud-active #root{padding-top:68px;}
 
   <!-- THE QUESTION — primary visual weight -->
   <div class="q-block">
+    <div class="q-standard-tag" id="q-standard-tag" style="display:none;"></div>
     <div class="q-number" id="q-number">QUESTION 1 OF 4</div>
     <div class="q-text" id="q-text">Question text loads here.</div>
   </div>
@@ -2234,6 +2243,17 @@ function renderQuestion() {
 
   // Question text
   document.getElementById('q-text').textContent = q.text;
+
+  // Standard tag — shown if question has a standard code
+  const stdTag = document.getElementById('q-standard-tag');
+  if (stdTag) {
+    if (q.standard) {
+      stdTag.textContent = q.standard;
+      stdTag.style.display = 'inline-block';
+    } else {
+      stdTag.style.display = 'none';
+    }
+  }
 
   // Shuffle choices at runtime.
   // correctAnswer is a plain string matching one of the choices — no index assumptions.
